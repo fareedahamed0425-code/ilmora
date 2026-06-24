@@ -117,6 +117,7 @@ export interface UserProfile {
   stressTrend?: number[];
   consistencyScore?: number;
   adaptiveLearningProfile?: string;
+  tabSwitchCount?: number;
 }
 
 export interface SavedNote {

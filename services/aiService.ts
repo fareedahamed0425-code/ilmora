@@ -74,7 +74,7 @@ export const getAiTutorResponse = async (
   const context = userProfile ? `
     Student Info:
     Name: ${userProfile.name}
-    University: ${userProfile.university || 'ZenITH Institute'}
+    University: ${userProfile.university || 'ILMORA Institute'}
     Course: ${userProfile.course || 'Cyber Security'}
     Semester: ${userProfile.semester || 'Semester 4'}
     Daily Study Goal: ${userProfile.dailyStudyGoal || 2} hours
@@ -101,7 +101,7 @@ export const getAiTutorResponse = async (
     Exams: ${userProfile.exams.map(e => `${e.subject} (${e.date})`).join(', ')}
   ` : 'No specific user context available.';
 
-  const systemInstruction = `You are Zen, an empathetic AI Study Coach. Your goal is to help students manage exam stress and improve their performance.
+  const systemInstruction = `You are the ILMORA Mentor, an empathetic AI Study Coach. Your goal is to help students manage exam stress and improve their performance.
   
   Be conversational, supportive, and insightful. When explaining things, use simple analogies.
   

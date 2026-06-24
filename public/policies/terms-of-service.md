@@ -1,8 +1,8 @@
-# Terms of Service for ZenStudy
+# Terms of Service for ILMORA MentorStudy
 
-**Last Updated:** June 23, 2026
+**Last Updated:** June 24, 2026
 
-Welcome to ZenStudy! These Terms of Service ("Terms") govern your access to and use of the ZenStudy web application (the "Service" or "ZenStudy"), an intelligent, psychology-aware academic assistant.
+Welcome to ILMORA MentorStudy! These Terms of Service ("Terms") govern your access to and use of the ILMORA MentorStudy web application (the "Service" or "ILMORA MentorStudy"), an intelligent, psychology-aware academic assistant.
 
 By accessing or using the Service, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use the Service.
 
@@ -16,8 +16,8 @@ By creating an account, logging in as a guest, or using any part of the Service,
 
 ## 2. Description of the Service
 
-ZenStudy is an educational and organizational tool designed to help students optimize study schedules, manage exam countdowns, simplify note archives, and monitor cognitive stress loads. Key features include:
-* **Zen AI Tutor:** AI-powered coaching and dialogue to clarify academic questions.
+ILMORA MentorStudy is an educational and organizational tool designed to help students optimize study schedules, manage exam countdowns, simplify note archives, and monitor cognitive stress loads. Key features include:
+* **ILMORA Mentor:** AI-powered coaching and dialogue to clarify academic questions.
 * **AI Planner:** Personalized study plan roadmap generation.
 * **Toolbox:** Study utilities (Pomodoro clock, focus shield, active recall, sleep calculator).
 * **Cognitive Logging:** Stress tracking and Yerkes-Dodson law performance zoning.
@@ -28,7 +28,7 @@ ZenStudy is an educational and organizational tool designed to help students opt
 
 ### A. Not a Clinical Tool
 > [!WARNING]
-> ZenStudy provides cognitive load metrics, mood tracking, and burnout risk analyses based on educational theories (such as the Yerkes-Dodson law). **These calculations, logs, and suggestions are for informational and educational purposes only. They do not constitute clinical psychological diagnosis, mental health therapy, or medical advice.**
+> ILMORA MentorStudy provides cognitive load metrics, mood tracking, and burnout risk analyses based on educational theories (such as the Yerkes-Dodson law). **These calculations, logs, and suggestions are for informational and educational purposes only. They do not constitute clinical psychological diagnosis, mental health therapy, or medical advice.**
 >
 > If you are experiencing severe academic anxiety, panic, or clinical symptoms of stress and depression, we strongly encourage you to contact professional student counselling services or qualified mental health healthcare providers.
 
@@ -50,19 +50,19 @@ The Service incorporates advanced artificial intelligence models (Google Gemini 
 You agree not to use the Service to:
 1. **Academic Cheating:** Copy, plagiarize, or use the AI Tutor or Note Archive to generate answers for active tests, graded assessments, or examinations in violation of your university's academic honor codes or integrity policies.
 2. **Abuse of Systems:** Send spam, malicious code, or attempt to compromise the Firebase security infrastructure.
-3. **Data Scraping:** Reverse engineer, extract, or scrape source code or dataset structures of ZenStudy without written consent.
+3. **Data Scraping:** Reverse engineer, extract, or scrape source code or dataset structures of ILMORA MentorStudy without written consent.
 
 ---
 
 ## 6. Intellectual Property
 
-The ZenStudy logos, visual layouts, styling systems, UI designs, code modules, and algorithms are the exclusive intellectual property of ZenStudy and its developers. You are granted a limited, personal, non-transferable, and revocable license to access the web application for personal, non-commercial educational study use.
+The ILMORA MentorStudy logos, visual layouts, styling systems, UI designs, code modules, and algorithms are the exclusive intellectual property of ILMORA MentorStudy and its developers. You are granted a limited, personal, non-transferable, and revocable license to access the web application for personal, non-commercial educational study use.
 
 ---
 
 ## 7. Limitation of Liability
 
-To the maximum extent permitted by applicable law, in no event shall ZenStudy or its developers be liable for any direct, indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of data, loss of grades, academic disciplinary actions, or stress-related outcomes resulting from your use or inability to use the Service.
+To the maximum extent permitted by applicable law, in no event shall ILMORA MentorStudy or its developers be liable for any direct, indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of data, loss of grades, academic disciplinary actions, or stress-related outcomes resulting from your use or inability to use the Service.
 
 ---
 

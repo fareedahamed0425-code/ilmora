@@ -70,7 +70,7 @@ export const NotesSimplifier: React.FC = () => {
           <div className="flex justify-between items-center mb-4">
             <div>
               <h3 className="text-lg font-bold text-slate-800 dark:text-white tracking-tighter">Note Lab</h3>
-              <p className="text-slate-450 dark:text-slate-400 text-[9px] font-black tracking-wider uppercase">AI Assisted Repository</p>
+              <p className="text-slate-400 dark:text-slate-400 text-[9px] font-black tracking-wider uppercase">AI Assisted Repository</p>
             </div>
             <div className="flex gap-1.5">
               <button onClick={() => formatNote('header')} className="w-7 h-7 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-all font-bold text-xs">H</button>
@@ -144,13 +144,13 @@ export const NotesSimplifier: React.FC = () => {
                 <div className="flex justify-between items-start">
                   <div>
                     <h4 className="font-black text-slate-800 dark:text-white text-xs line-clamp-1 group-hover:text-indigo-600 transition-colors">{note.title}</h4>
-                    <p className="text-[8px] font-black text-slate-450 uppercase tracking-wider mt-1 flex items-center gap-1.5">
+                    <p className="text-[8px] font-black text-slate-400 uppercase tracking-wider mt-1 flex items-center gap-1.5">
                       <span>🗓️</span> {note.date}
                     </p>
                   </div>
                   <button
                     onClick={(e) => deleteNote(note.id, e)}
-                    className="text-slate-350 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/30 w-6 h-6 rounded-full flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 text-base font-bold"
+                    className="text-slate-300 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/30 w-6 h-6 rounded-full flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 text-base font-bold"
                   >
                     ×
                   </button>

@@ -13,7 +13,7 @@ export const ProfileEditor: React.FC<ProfileEditorProps> = ({ user, onSave, onCa
   const [avatar, setAvatar] = useState(user.avatar);
   const [course, setCourse] = useState(user.course || user.major || 'Cyber Security');
   const [semester, setSemester] = useState(user.semester || 'Semester 4');
-  const [university, setUniversity] = useState(user.university || 'ZenITH Institute');
+  const [university, setUniversity] = useState(user.university || 'ILMORA Institute');
   const [dailyStudyGoal, setDailyStudyGoal] = useState(user.dailyStudyGoal !== undefined ? user.dailyStudyGoal : 2);
   const [isUploading, setIsUploading] = useState(false);
   const [uploadError, setUploadError] = useState('');
@@ -92,7 +92,7 @@ export const ProfileEditor: React.FC<ProfileEditorProps> = ({ user, onSave, onCa
               )}
             </div>
             
-            <label className="mt-2.5 cursor-pointer bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-2 text-xs font-bold text-slate-600 dark:text-slate-350 transition-all select-none">
+            <label className="mt-2.5 cursor-pointer bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-2 text-xs font-bold text-slate-600 dark:text-slate-300 transition-all select-none">
               <span>📸 Change Photo</span>
               <input type="file" accept="image/*" onChange={handleImageUpload} className="hidden" disabled={isUploading} />
             </label>

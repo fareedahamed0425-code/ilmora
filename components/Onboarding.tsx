@@ -141,8 +141,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete, onCancel }) 
           {step === 1 && (
             <div className="space-y-6 animate-fade-in">
               <div className="text-center space-y-2 mb-6">
-                <h2 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Create Student Profile</h2>
-                <p className="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Step 1 of 2: Let's build your identity</p>
+                <h1 className="text-xl md:text-3xl font-black text-slate-800 dark:text-white mb-2 tracking-tighter">Welcome to ILMORA</h1>
+                <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base font-medium">Let's build your ILMORA profile</p>
               </div>
 
               {/* Profile Avatar Upload */}
@@ -201,7 +201,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete, onCancel }) 
                     value={university}
                     onChange={(e) => setUniversity(e.target.value)}
                     className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-2.5 outline-none focus:ring-2 focus:ring-indigo-500 text-slate-800 dark:text-white font-medium text-sm"
-                    placeholder="ZenITH Institute"
+                    placeholder="ILMORA Institute"
                   />
                 </div>
 

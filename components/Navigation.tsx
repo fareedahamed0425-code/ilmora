@@ -18,7 +18,7 @@ const navItems = [
   { path: '/planner', label: 'AI Planner', icon: '🚀' },
   { path: '/notes', label: 'Note Archive', icon: '📝' },
   { path: '/toolbox', label: 'Toolbox', icon: '🛡️' },
-  { path: '/zen-tutor/overview', label: 'Zen AI Tutor', icon: '🎓', isParent: true },
+  { path: '/zen-tutor/overview', label: 'ILMORA Mentor', icon: '🎓', isParent: true },
   { path: '/profile', label: 'Profile', icon: '👤' },
 ];
 
@@ -30,7 +30,7 @@ const tutorChildItems = [
   { path: '/zen-tutor/burnout-stress', label: 'Burnout & Stress' },
   { path: '/zen-tutor/progress-trends', label: 'Progress Trends' },
   { path: '/zen-tutor/recommendations', label: 'Recommendations' },
-  { path: '/zen-tutor/chat-coach', label: 'AI Chat Coach' },
+  { path: '/zen-tutor/chat-coach', label: 'Mentor Chat' },
 ];
 
 export const Navigation: React.FC<NavigationProps> = ({
@@ -82,9 +82,9 @@ export const Navigation: React.FC<NavigationProps> = ({
         <div className={`p-3 pb-2.5 flex ${isCollapsed ? 'flex-col items-center gap-3' : 'items-center justify-between'} border-b border-slate-100 dark:border-slate-800/80 mb-1.5`}>
           {!isCollapsed ? (
             <>
-              <h1 className="text-base font-black text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center gap-1.5 tracking-tighter cursor-default transition-all duration-350">
+              <h1 className="text-base font-black text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center gap-1.5 tracking-tighter cursor-default transition-all duration-350 font-['Cormorant_Garamond']">
                 <span className="text-xl animate-float">🧘</span>
-                <span className="leading-none">ZenStudy</span>
+                <span className="leading-none tracking-widest uppercase">ILMORA</span>
               </h1>
               <div className="flex items-center gap-0.5">
                 <button
@@ -94,7 +94,7 @@ export const Navigation: React.FC<NavigationProps> = ({
                 >
                   ⟨
                 </button>
-                <button className="md:hidden bg-slate-100 dark:bg-slate-800 p-1.5 rounded-lg hover:bg-red-650 hover:text-white transition-all text-sm" onClick={() => setIsMobileMenuOpen(false)}>
+                <button className="md:hidden bg-slate-100 dark:bg-slate-800 p-1.5 rounded-lg hover:bg-red-600 hover:text-white transition-all text-sm" onClick={() => setIsMobileMenuOpen(false)}>
                   ✕
                 </button>
               </div>
@@ -148,7 +148,7 @@ export const Navigation: React.FC<NavigationProps> = ({
                   {!isCollapsed && item.isParent && (
                     <button
                       onClick={handleToggleTutorMenu}
-                      className="w-5 h-5 flex items-center justify-center rounded hover:bg-white/10 text-slate-350 hover:text-white transition-all text-[8px] font-bold self-center"
+                      className="w-5 h-5 flex items-center justify-center rounded hover:bg-white/10 text-slate-300 hover:text-white transition-all text-[8px] font-bold self-center"
                       title={isTutorMenuExpanded ? 'Collapse sub-menu' : 'Expand sub-menu'}
                     >
                       {isTutorMenuExpanded ? '▼' : '▶'}
@@ -182,7 +182,7 @@ export const Navigation: React.FC<NavigationProps> = ({
                           className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-md text-left transition-all duration-150 text-[9px] uppercase tracking-wider font-bold
                             ${isChildActive
                               ? 'text-indigo-600 dark:text-indigo-400 bg-indigo-50/50 dark:bg-indigo-950/20'
-                              : 'text-slate-450 dark:text-slate-550 hover:text-slate-850 dark:hover:text-slate-200'}
+                              : 'text-slate-400 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}
                           `}
                         >
                           <span>{child.label}</span>
@@ -201,7 +201,7 @@ export const Navigation: React.FC<NavigationProps> = ({
         <div className={`p-2.5 ${isCollapsed ? 'space-y-1.5' : 'space-y-2'} border-t border-slate-100 dark:border-slate-800/80`}>
           <button
             onClick={toggleTheme}
-            className={`w-full flex items-center justify-center ${isCollapsed ? 'py-2 px-0 text-base' : 'gap-2 py-2 px-3 text-[9px]'} bg-slate-100/80 dark:bg-slate-800/50 hover:bg-slate-200/80 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg font-bold uppercase tracking-wider text-slate-650 dark:text-slate-300 transition-all`}
+            className={`w-full flex items-center justify-center ${isCollapsed ? 'py-2 px-0 text-base' : 'gap-2 py-2 px-3 text-[9px]'} bg-slate-100/80 dark:bg-slate-800/50 hover:bg-slate-200/80 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 transition-all`}
             title={theme === 'light' ? 'Switch to Night Mode' : 'Switch to Day Mode'}
           >
             {isCollapsed ? (theme === 'light' ? '🌙' : '☀️') : (theme === 'light' ? '🌙 Night Mode' : '☀️ Day Mode')}
@@ -218,7 +218,7 @@ export const Navigation: React.FC<NavigationProps> = ({
 
           {!isCollapsed && (
             <div className="bg-gradient-to-br from-indigo-600/5 to-purple-600/5 rounded-lg p-2.5 text-center border border-indigo-500/10 md:block hidden">
-              <p className="text-[7px] text-indigo-550 dark:text-indigo-400 font-black mb-0.5 uppercase tracking-wider">Zen Affirmation</p>
+              <p className="text-[7px] text-indigo-500 dark:text-indigo-400 font-black mb-0.5 uppercase tracking-wider">ILMORA Insight</p>
               <p className="text-[10px] text-indigo-700/85 dark:text-indigo-200/85 font-medium italic">"The secret of getting ahead is getting started."</p>
             </div>
           )}

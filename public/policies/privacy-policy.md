@@ -1,8 +1,8 @@
-# Privacy Policy for ZenStudy
+# Privacy Policy for ILMORA MentorStudy
 
-**Last Updated:** June 23, 2026
+**Last Updated:** June 24, 2026
 
-At ZenStudy ("we," "our," or "us"), we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our web application, ZenStudy (the "Service"), which serves as a psychology-aware academic assistant.
+At ILMORA MentorStudy ("we," "our," or "us"), we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our web application, ILMORA MentorStudy (the "Service"), which serves as a psychology-aware academic assistant.
 
 Please read this Privacy Policy carefully. By accessing or using the Service, you consent to the collection, transfer, manipulation, storage, disclosure, and other uses of your information as described in this policy.
 
@@ -20,12 +20,12 @@ To provide a personalized, psychology-aware studying experience, we collect info
 ### B. Psychological & Wellness Data (Sensitive Data)
 * **Mood Logs:** Daily emotional and psychological check-ins (e.g., feeling Stressed, Focused, Motivated, Tired, Overwhelmed).
 * **Stress Diagnostic Responses:** Answers to stress and burnout risk questionnaires.
-* **Burnout & Focus Status:** Automated cognitive focus metrics, consistency ratings, distraction flags, and stress-performance zone placement calculated under the Yerkes-Dodson psychological law.
+* **Burnout & Focus Status:** Automated cognitive focus metrics, consistency ratings, distraction flags, tab switch context tracking (which only tracks focus interruptions locally without accessing browser history), and stress-performance zone placement calculated under the Yerkes-Dodson psychological law.
 
 ### C. Performance & Usage Data
 * **Study Metrics:** Number of completed Pomodoro study sessions, study streaks, active streak freeze balances, and total accumulated study hours.
 * **Note Archive Content:** Text uploads, lecture notes, or study material you upload to simplify or summarize.
-* **AI Interactions:** Query history and prompt conversations with the Zen AI Tutor.
+* **AI Interactions:** Query history and prompt conversations with the ILMORA Mentor.
 
 ---
 
@@ -35,7 +35,7 @@ We use the collected information for the following purposes:
 1. **Personalization:** To calculate your Yerkes-Dodson stress-performance zone and provide personalized focus advice.
 2. **Feature Operation:** To generate customized study roadmaps, log daily tasks, and manage study calendar agendas.
 3. **Streak Maintenance:** To track and protect your study consistency streak (including automated streak freezes).
-4. **AI Mentoring:** To synthesize summaries in the Note Archive and answer queries using the Zen AI Tutor.
+4. **AI Mentoring:** To synthesize summaries in the Note Archive and answer queries using the ILMORA Mentor.
 5. **Security:** To authenticate your account and ensure secure workspace database persistence.
 
 ---
@@ -52,7 +52,7 @@ We offer two modes of data persistence to keep you in control:
 
 We share and process data with trusted third-party providers solely to operate the Service:
 * **Firebase (Google Cloud Platform):** Used for user authentication, database persistence, and secure hosting.
-* **Google Gemini API / Vertex AI:** Used to power the Zen AI Tutor, study plan generator, and Note Archive simplifier. Text prompts, notes, and academic profiles are sent to Gemini models for processing. **We do not send your personal credentials or account identification tokens to the AI model.**
+* **Google Gemini API / Vertex AI:** Used to power the ILMORA Mentor, study plan generator, and Note Archive simplifier. Text prompts, notes, and academic profiles are sent to Gemini models for processing. **We do not send your personal credentials or account identification tokens to the AI model.**
 
 ---
 

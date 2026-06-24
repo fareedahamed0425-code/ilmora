@@ -21,7 +21,7 @@ export const StudentIdentityCard: React.FC<StudentIdentityCardProps> = ({
   const studentName = user.name || 'Student';
   const course = user.course || 'Cyber Security';
   const semester = user.semester || 'Semester 4';
-  const university = user.university || 'ZenITH Institute';
+  const university = user.university || 'ILMORA Institute';
   
   // Real Statistics generated automatically
   const studyStreak = user.studyStreak || 0;
@@ -137,7 +137,7 @@ export const StudentIdentityCard: React.FC<StudentIdentityCardProps> = ({
               />
             ) : (
               <div className="h-full w-full flex flex-col items-center justify-center relative bg-gradient-to-br from-indigo-500 to-purple-500">
-                <svg className="w-6 h-6 opacity-30 text-indigo-150" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 opacity-30 text-indigo-100" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
                   <path d="M5 13.18v4l7 3.82 7-3.82v-4L12 17l-7-3.82z"/>
                 </svg>
@@ -169,27 +169,27 @@ export const StudentIdentityCard: React.FC<StudentIdentityCardProps> = ({
       {/* Identity Card Body: Auto-generated stats */}
       <div className="py-4 space-y-2.5">
         <div className="flex justify-between items-center text-xs">
-          <span className="text-slate-350 font-bold">🔥 Current Streak</span>
+          <span className="text-slate-300 font-bold">🔥 Current Streak</span>
           <span className="font-mono font-black text-amber-300">{studyStreak} Days</span>
         </div>
 
         <div className="flex justify-between items-center text-xs">
-          <span className="text-slate-350 font-bold">📚 Sessions Completed</span>
+          <span className="text-slate-300 font-bold">📚 Sessions Completed</span>
           <span className="font-mono font-black">{sessionsCompleted}</span>
         </div>
 
         <div className="flex justify-between items-center text-xs">
-          <span className="text-slate-350 font-bold">⏱ Total Study Hours</span>
+          <span className="text-slate-300 font-bold">⏱ Total Study Hours</span>
           <span className="font-mono font-black">{totalHours.toFixed(1)}h</span>
         </div>
 
         <div className="flex justify-between items-center text-xs">
-          <span className="text-slate-350 font-bold">🏆 Achievements Earned</span>
+          <span className="text-slate-300 font-bold">🏆 Achievements Earned</span>
           <span className="font-mono font-black">{achievementsCount}</span>
         </div>
 
         <div className="flex justify-between items-center text-xs">
-          <span className="text-slate-350 font-bold">🎯 Goal Completion Rate</span>
+          <span className="text-slate-300 font-bold">🎯 Goal Completion Rate</span>
           <div className="flex items-center gap-2">
             <div className="w-16 bg-white/10 rounded-full h-1.5 overflow-hidden border border-white/5">
               <div 

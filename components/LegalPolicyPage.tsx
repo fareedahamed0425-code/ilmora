@@ -84,7 +84,7 @@ export const LegalPolicyPage: React.FC<LegalPolicyPageProps> = ({ policyType, on
           </div>
           <div className="hidden sm:block">
             <span className="text-xs font-bold uppercase tracking-widest text-slate-400 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-full">
-              ZenStudy Legal
+              ILMORA Legal
             </span>
           </div>
         </div>
@@ -121,7 +121,7 @@ export const LegalPolicyPage: React.FC<LegalPolicyPageProps> = ({ policyType, on
         {/* Footer info */}
         <div className="mt-8 text-center pb-8">
           <p className="text-xs text-slate-500 font-medium">
-            © {new Date().getFullYear()} ZenStudy. All rights reserved.
+            © {new Date().getFullYear()} ILMORA. All rights reserved.
           </p>
         </div>
       </main>

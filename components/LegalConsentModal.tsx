@@ -34,7 +34,7 @@ export const LegalConsentModal: React.FC<LegalConsentModalProps> = ({ onConsent 
           
           <div className="space-y-2">
             <h2 className="text-2xl md:text-3xl font-black text-slate-800 dark:text-white tracking-tight">
-              Welcome to ZenStudy
+              Welcome to ILMORA
             </h2>
             <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base max-w-lg mx-auto leading-relaxed">
               Before continuing, please review and accept our Terms of Service, Privacy Policy, and Cookie Policy to ensure a safe and secure learning environment.
@@ -42,15 +42,15 @@ export const LegalConsentModal: React.FC<LegalConsentModalProps> = ({ onConsent 
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full max-w-md mt-2">
-            <a href="/terms" target="_blank" rel="noopener noreferrer" className="flex-1 py-3 px-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-indigo-500/50 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 text-slate-700 dark:text-slate-300 font-bold text-sm transition-all flex items-center justify-center gap-2 group">
+            <a href="/terms" onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/terms'); window.dispatchEvent(new Event('popstate')); }} className="flex-1 py-3 px-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-indigo-500/50 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 text-slate-700 dark:text-slate-300 font-bold text-sm transition-all flex items-center justify-center gap-2 group">
               <span>📄</span>
               <span className="group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Terms of Service</span>
             </a>
-            <a href="/privacy" target="_blank" rel="noopener noreferrer" className="flex-1 py-3 px-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-purple-500/50 hover:bg-purple-50 dark:hover:bg-purple-900/20 text-slate-700 dark:text-slate-300 font-bold text-sm transition-all flex items-center justify-center gap-2 group">
+            <a href="/privacy" onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/privacy'); window.dispatchEvent(new Event('popstate')); }} className="flex-1 py-3 px-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-purple-500/50 hover:bg-purple-50 dark:hover:bg-purple-900/20 text-slate-700 dark:text-slate-300 font-bold text-sm transition-all flex items-center justify-center gap-2 group">
               <span>🛡️</span>
               <span className="group-hover:text-purple-600 dark:group-hover:text-purple-400">Privacy Policy</span>
             </a>
-            <a href="/cookies" target="_blank" rel="noopener noreferrer" className="flex-1 py-3 px-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500/50 hover:bg-amber-50 dark:hover:bg-amber-900/20 text-slate-700 dark:text-slate-300 font-bold text-sm transition-all flex items-center justify-center gap-2 group">
+            <a href="/cookies" onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/cookies'); window.dispatchEvent(new Event('popstate')); }} className="flex-1 py-3 px-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500/50 hover:bg-amber-50 dark:hover:bg-amber-900/20 text-slate-700 dark:text-slate-300 font-bold text-sm transition-all flex items-center justify-center gap-2 group">
               <span>🍪</span>
               <span className="group-hover:text-amber-600 dark:group-hover:text-amber-400">Cookie Policy</span>
             </a>
@@ -70,7 +70,7 @@ export const LegalConsentModal: React.FC<LegalConsentModalProps> = ({ onConsent 
                 </svg>
               </div>
               <span className="text-sm text-slate-600 dark:text-slate-300 font-medium group-hover:text-slate-800 dark:group-hover:text-white transition-colors">
-                I have read and agree to the Terms of Service, Privacy Policy, and Cookie Policy. I understand that my consent is required to use ZenStudy.
+                I have read and agree to the Terms of Service, Privacy Policy, and Cookie Policy. I understand that my consent is required to use ILMORA.
               </span>
             </label>
           </div>
@@ -85,7 +85,7 @@ export const LegalConsentModal: React.FC<LegalConsentModalProps> = ({ onConsent 
                   : 'bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed'
               }`}
             >
-              Continue to ZenStudy
+              Continue to ILMORA
             </button>
           </div>
         </div>

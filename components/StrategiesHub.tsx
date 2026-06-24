@@ -173,7 +173,7 @@ export const StrategiesHub: React.FC<StrategiesHubProps> = ({
             className={`px-3.5 py-1.5 rounded-lg font-bold flex items-center gap-1.5 transition-all duration-200 text-[11px]
               ${activeTab === tab.id 
                 ? 'bg-indigo-600 text-white shadow-sm scale-102' 
-                : 'text-slate-655 dark:text-slate-400 hover:bg-white/80 dark:hover:bg-slate-700/80 hover:text-indigo-650 dark:hover:text-indigo-400'}
+                : 'text-slate-655 dark:text-slate-400 hover:bg-white/80 dark:hover:bg-slate-700/80 hover:text-indigo-600 dark:hover:text-indigo-400'}
             `}
           >
             <span>{tab.icon}</span>
@@ -197,14 +197,14 @@ export const StrategiesHub: React.FC<StrategiesHubProps> = ({
                 </div>
                 <button 
                   onClick={() => setIsHidden(!isHidden)}
-                  className="bg-indigo-50 dark:bg-indigo-900/30 text-indigo-650 dark:text-indigo-400 px-3 h-[30px] rounded-md font-bold text-[11px] flex items-center justify-center hover:bg-indigo-100 dark:hover:bg-indigo-950 transition-colors"
+                  className="bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 px-3 h-[30px] rounded-md font-bold text-[11px] flex items-center justify-center hover:bg-indigo-100 dark:hover:bg-indigo-950 transition-colors"
                 >
                   {isHidden ? '👁️ Reveal text' : '🙈 Hide text'}
                 </button>
               </div>
              
               <textarea
-                className={`w-full h-44 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-3 font-mono text-slate-700 dark:text-slate-250 resize-none outline-none focus:border-indigo-500/50 transition-all text-xs
+                className={`w-full h-44 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-3 font-mono text-slate-700 dark:text-slate-200 resize-none outline-none focus:border-indigo-500/50 transition-all text-xs
                    ${isHidden ? 'blur-md select-none' : 'blur-0'}
                 `}
                 placeholder="Start typing formulas, key points, or concepts from memory..."
@@ -215,7 +215,7 @@ export const StrategiesHub: React.FC<StrategiesHubProps> = ({
                 {onAskAI && (
                   <button 
                     onClick={() => onAskAI("Explain the benefit of the Active Recall blurting technique and suggest subjects it fits best.")}
-                    className="bg-indigo-50 dark:bg-indigo-900/30 text-indigo-650 dark:text-indigo-400 px-3.5 h-[34px] rounded-md font-bold flex items-center gap-1.5 hover:bg-indigo-100 dark:hover:bg-indigo-950 transition-colors text-[11px] border border-indigo-100/50 dark:border-indigo-800/50"
+                    className="bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 px-3.5 h-[34px] rounded-md font-bold flex items-center gap-1.5 hover:bg-indigo-100 dark:hover:bg-indigo-950 transition-colors text-[11px] border border-indigo-100/50 dark:border-indigo-800/50"
                   >
                     <span>🤖</span> Active Recall Tips
                   </button>
@@ -264,11 +264,11 @@ export const StrategiesHub: React.FC<StrategiesHubProps> = ({
             <div className="lg:col-span-8 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl p-5 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800/80 flex flex-col items-center justify-center text-center">
               <h3 className="text-base font-bold text-slate-800 dark:text-white mb-2">Pomodoro Timer</h3>
               
-              <div className="flex items-center gap-1.5 mb-4.5 bg-slate-100 dark:bg-slate-850 px-3.5 py-1 rounded-full border border-slate-200 dark:border-slate-700/85">
+              <div className="flex items-center gap-1.5 mb-4.5 bg-slate-100 dark:bg-slate-800 px-3.5 py-1 rounded-full border border-slate-200 dark:border-slate-700/85">
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input type="checkbox" checked={focusShield} onChange={(e) => setFocusShield(e.target.checked)} className="sr-only peer" />
                   <div className="w-8 h-4 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-red-500"></div>
-                  <span className="ml-2 text-[10px] font-bold text-slate-600 dark:text-slate-350 select-none">🛡️ Focus Shield (Detect tab switches)</span>
+                  <span className="ml-2 text-[10px] font-bold text-slate-600 dark:text-slate-300 select-none">🛡️ Focus Shield (Detect tab switches)</span>
                 </label>
               </div>
               
@@ -314,7 +314,7 @@ export const StrategiesHub: React.FC<StrategiesHubProps> = ({
                 </button>
                 <button 
                   onClick={resetTimer} 
-                  className="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-655 dark:text-slate-350 flex items-center justify-center text-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors shadow-sm"
+                  className="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-655 dark:text-slate-300 flex items-center justify-center text-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors shadow-sm"
                 >
                   🔄
                 </button>
@@ -381,12 +381,12 @@ export const StrategiesHub: React.FC<StrategiesHubProps> = ({
                 
                 <div className="space-y-3.5 mb-4">
                   <div>
-                    <label className="block text-[9px] font-bold text-slate-450 uppercase mb-1">Desired Wake-up Time:</label>
+                    <label className="block text-[9px] font-bold text-slate-400 uppercase mb-1">Desired Wake-up Time:</label>
                     <input 
                       type="time" 
                       value={wakeTime}
                       onChange={(e) => setWakeTime(e.target.value)}
-                      className="w-full bg-white/10 border border-white/15 rounded-lg px-3 py-1.5 text-sm font-mono text-center outline-none focus:ring-2 focus:ring-indigo-450 text-white"
+                      className="w-full bg-white/10 border border-white/15 rounded-lg px-3 py-1.5 text-sm font-mono text-center outline-none focus:ring-2 focus:ring-indigo-400 text-white"
                     />
                   </div>
                   <button 
@@ -399,7 +399,7 @@ export const StrategiesHub: React.FC<StrategiesHubProps> = ({
 
                 {bedtimes.length > 0 && (
                   <div className="bg-white/5 rounded-lg p-2.5 border border-white/10 text-center space-y-2">
-                    <p className="text-[9px] font-bold text-slate-350 uppercase tracking-wider">Suggested sleep times:</p>
+                    <p className="text-[9px] font-bold text-slate-300 uppercase tracking-wider">Suggested sleep times:</p>
                     <div className="grid grid-cols-3 gap-1">
                       {bedtimes.map((time, i) => (
                         <div key={i} className="bg-white/5 rounded p-1 border border-white/5">
@@ -417,7 +417,7 @@ export const StrategiesHub: React.FC<StrategiesHubProps> = ({
                   onClick={() => onAskAI("Calculate optimal rest and explain how a sleep pattern changes cognitive response under Yerkes-Dodson.")}
                   className="mt-3 w-full bg-white/10 text-white text-[10px] font-bold h-8 rounded-lg border border-white/15 hover:bg-white/15 transition-all flex items-center justify-center gap-1"
                 >
-                  <span>🤖</span> Ask Zen Sleep Advice
+                  <span>🤖</span> Ask ILMORA Sleep Advice
                 </button>
               )}
             </div>
@@ -431,10 +431,10 @@ export const StrategiesHub: React.FC<StrategiesHubProps> = ({
             <div className="bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl p-5 rounded-2xl border border-slate-200 dark:border-slate-800/80 shadow-sm flex flex-col justify-between">
               <div>
                 <h3 className="text-base font-bold text-slate-800 dark:text-white mb-1">Digital Detox</h3>
-                <p className="text-slate-550 dark:text-slate-400 text-[10px] mb-3">Monitor daily screen usage and manage distractions.</p>
+                <p className="text-slate-500 dark:text-slate-400 text-[10px] mb-3">Monitor daily screen usage and manage distractions.</p>
                 
                 <div className="space-y-3">
-                  <div className="bg-slate-50 dark:bg-slate-850 p-3 rounded-xl border border-slate-200 dark:border-slate-750">
+                  <div className="bg-slate-50 dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
                     <label className="block text-[8px] font-bold text-slate-500 uppercase mb-1">Today's Screen Time (Hours):</label>
                     <div className="flex gap-2">
                       <input 
@@ -448,7 +448,7 @@ export const StrategiesHub: React.FC<StrategiesHubProps> = ({
                         <button 
                           onClick={() => onAskAI(`I spent ${dailyScreenTime} hours on my phone today. What exercises can I do to detox my mind?`)}
                           disabled={!dailyScreenTime}
-                          className="bg-indigo-650 text-white hover:bg-indigo-750 font-bold px-3 text-xs rounded disabled:opacity-50 h-8 flex items-center justify-center"
+                          className="bg-indigo-600 text-white hover:bg-indigo-700 font-bold px-3 text-xs rounded disabled:opacity-50 h-8 flex items-center justify-center"
                         >
                           Log
                         </button>
@@ -460,7 +460,7 @@ export const StrategiesHub: React.FC<StrategiesHubProps> = ({
                     <h4 className="text-xs font-bold text-red-700 dark:text-red-300 mb-1">🚫 Distraction Blocker Mock</h4>
                     <div className="flex flex-wrap gap-1">
                       {['YouTube', 'TikTok', 'Instagram', 'Steam'].map(a => (
-                        <span key={a} className="px-1.5 py-0.5 bg-red-100 dark:bg-red-950/40 text-[8px] font-bold text-red-650 dark:text-red-300 border border-red-200/30 rounded">
+                        <span key={a} className="px-1.5 py-0.5 bg-red-100 dark:bg-red-950/40 text-[8px] font-bold text-red-600 dark:text-red-300 border border-red-200/30 rounded">
                           {a} 🗙
                         </span>
                       ))}
@@ -486,7 +486,7 @@ export const StrategiesHub: React.FC<StrategiesHubProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               
               {/* Launcher 1: AI Planner */}
-              <div className="p-4 bg-slate-50 dark:bg-slate-850 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between min-h-[140px]">
+              <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between min-h-[140px]">
                 <div>
                   <div className="text-xl mb-1.5">🚀</div>
                   <h4 className="font-bold text-xs text-slate-800 dark:text-white">Smart Study Planner</h4>
@@ -503,7 +503,7 @@ export const StrategiesHub: React.FC<StrategiesHubProps> = ({
               </div>
 
               {/* Launcher 2: Note Simplifier */}
-              <div className="p-4 bg-slate-50 dark:bg-slate-850 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between min-h-[140px]">
+              <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between min-h-[140px]">
                 <div>
                   <div className="text-xl mb-1.5">📝</div>
                   <h4 className="font-bold text-xs text-slate-800 dark:text-white">Note Summarizer</h4>
@@ -520,12 +520,12 @@ export const StrategiesHub: React.FC<StrategiesHubProps> = ({
               </div>
 
               {/* Launcher 3: Quick AI Query */}
-              <div className="p-4 bg-slate-50 dark:bg-slate-850 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between min-h-[140px]">
+              <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between min-h-[140px]">
                 <div>
                   <div className="text-xl mb-1.5">🎓</div>
                   <h4 className="font-bold text-xs text-slate-800 dark:text-white">Ask AI Mentor</h4>
                   <p className="text-slate-500 dark:text-slate-400 text-[10px] mt-1 leading-normal">
-                    Directly query the Zen AI Tutor concerning learning techniques and stress management advice.
+                    Directly query the ILMORA Mentor concerning learning techniques and stress management advice.
                   </p>
                 </div>
                 <button 
@@ -552,7 +552,7 @@ export const StrategiesHub: React.FC<StrategiesHubProps> = ({
                     <button
                       key={index}
                       onClick={() => onAskAI(p)}
-                      className="bg-white hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-750 border border-slate-200 dark:border-slate-700 text-slate-655 dark:text-slate-300 font-bold px-3 py-1.5 rounded-lg text-[10px] transition-all"
+                      className="bg-white hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-655 dark:text-slate-300 font-bold px-3 py-1.5 rounded-lg text-[10px] transition-all"
                     >
                       💡 "{p}"
                     </button>

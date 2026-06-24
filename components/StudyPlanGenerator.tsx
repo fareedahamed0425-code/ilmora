@@ -126,14 +126,14 @@ export const StudyPlanGenerator: React.FC<StudyPlanGeneratorProps> = ({ userProf
         
         <form onSubmit={handleSubmit} className="space-y-3.5">
           <div className="group">
-            <label className="block text-[11px] font-bold text-slate-700 dark:text-slate-300 mb-1 group-focus-within:text-indigo-650 dark:group-focus-within:text-indigo-400 transition-colors">
+            <label className="block text-[11px] font-bold text-slate-700 dark:text-slate-300 mb-1 group-focus-within:text-indigo-600 dark:group-focus-within:text-indigo-400 transition-colors">
                 What do you need to study? (Comma separated)
             </label>
             <textarea
               required
               rows={2}
               placeholder="e.g. Calculus, Spanish History, Biology"
-              className="w-full bg-slate-850 text-white placeholder-slate-500 border border-slate-700 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none transition-all shadow-inner resize-none text-xs"
+              className="w-full bg-white dark:bg-slate-800 text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none transition-all shadow-inner resize-none text-xs"
               value={formData.subjects}
               onChange={e => setFormData({...formData, subjects: e.target.value})}
               onKeyDown={handleKeyDown}
@@ -141,14 +141,14 @@ export const StudyPlanGenerator: React.FC<StudyPlanGeneratorProps> = ({ userProf
           </div>
 
           <div className="group">
-            <label className="block text-[11px] font-bold text-slate-700 dark:text-slate-300 mb-1 group-focus-within:text-indigo-650 dark:group-focus-within:text-indigo-400 transition-colors">
+            <label className="block text-[11px] font-bold text-slate-700 dark:text-slate-300 mb-1 group-focus-within:text-indigo-600 dark:group-focus-within:text-indigo-400 transition-colors">
                 How many hours are you available?
             </label>
             <textarea
               required
               rows={1}
               placeholder="e.g. 4 hours"
-              className="w-full bg-slate-850 text-white placeholder-slate-500 border border-slate-700 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none transition-all shadow-inner resize-none text-xs"
+              className="w-full bg-white dark:bg-slate-800 text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none transition-all shadow-inner resize-none text-xs"
               value={formData.availability}
               onChange={e => setFormData({...formData, availability: e.target.value})}
               onKeyDown={handleKeyDown}
@@ -156,13 +156,13 @@ export const StudyPlanGenerator: React.FC<StudyPlanGeneratorProps> = ({ userProf
           </div>
 
           <div className="group">
-            <label className="block text-[11px] font-bold text-slate-700 dark:text-slate-300 mb-1 group-focus-within:text-indigo-650 dark:group-focus-within:text-indigo-400 transition-colors">
+            <label className="block text-[11px] font-bold text-slate-700 dark:text-slate-300 mb-1 group-focus-within:text-indigo-600 dark:group-focus-within:text-indigo-400 transition-colors">
                 Any preferences? (Optional)
             </label>
             <textarea
               rows={1}
               placeholder="e.g. Hardest first, include frequent breaks, night study style"
-              className="w-full bg-slate-850 text-white placeholder-slate-500 border border-slate-700 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none transition-all shadow-inner resize-none text-xs"
+              className="w-full bg-white dark:bg-slate-800 text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none transition-all shadow-inner resize-none text-xs"
               value={formData.preferences}
               onChange={e => setFormData({...formData, preferences: e.target.value})}
               onKeyDown={handleKeyDown}
@@ -215,13 +215,13 @@ export const StudyPlanGenerator: React.FC<StudyPlanGeneratorProps> = ({ userProf
                             <span className="text-xl mt-1 transform group-hover:scale-105 transition-transform duration-300">{getIcon(session)}</span>
                         </div>
                         <div className="flex-1">
-                            <h4 className={`font-bold text-sm flex items-center gap-1.5 ${isBreak(session) ? 'text-emerald-800 dark:text-emerald-450' : 'text-slate-800 dark:text-slate-100'}`}>
+                            <h4 className={`font-bold text-sm flex items-center gap-1.5 ${isBreak(session) ? 'text-emerald-800 dark:text-emerald-400' : 'text-slate-800 dark:text-slate-100'}`}>
                                 {session.subject}
                             </h4>
-                            <p className="text-[11px] text-slate-550 dark:text-slate-400 font-medium mb-1">{session.topic}</p>
+                            <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium mb-1">{session.topic}</p>
                             
                             <div className="flex gap-1.5 flex-wrap">
-                                <span className={`text-[9px] px-1.5 py-0.5 rounded-md border font-semibold shadow-sm ${isBreak(session) ? 'bg-emerald-50/60 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 border-emerald-100/55 dark:border-emerald-850' : 'bg-indigo-50/60 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-300 border-indigo-100/55 dark:border-indigo-850'}`}>
+                                <span className={`text-[9px] px-1.5 py-0.5 rounded-md border font-semibold shadow-sm ${isBreak(session) ? 'bg-emerald-50/60 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 border-emerald-100/55 dark:border-emerald-800' : 'bg-indigo-50/60 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-300 border-indigo-100/55 dark:border-indigo-800'}`}>
                                     {isBreak(session) ? '🌿' : '💡'} {session.technique}
                                 </span>
                                 <span className="text-[9px] text-slate-400 border border-slate-200 dark:border-slate-700 px-1.5 py-0.5 rounded-md">{session.duration}</span>

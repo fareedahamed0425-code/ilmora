@@ -34,7 +34,7 @@ export const ReturningUserModal: React.FC<ReturningUserModalProps> = ({
 
         {isReactivate ? (
           <>
-            <h2 className="text-2xl font-black text-slate-850 dark:text-white tracking-tight mb-2">Ready for a fresh start?</h2>
+            <h2 className="text-2xl font-black text-slate-800 dark:text-white tracking-tight mb-2">Ready for a fresh start?</h2>
             <p className="text-slate-500 dark:text-slate-400 text-sm font-semibold mb-6">
               Your previous study streak ended at <span className="text-amber-500 font-bold font-mono">{previousStreak} days</span>. 
               Let's clean the slate and begin a new milestone today!
@@ -42,7 +42,7 @@ export const ReturningUserModal: React.FC<ReturningUserModalProps> = ({
           </>
         ) : (
           <>
-            <h2 className="text-2xl font-black text-slate-850 dark:text-white tracking-tight mb-2">Welcome back.</h2>
+            <h2 className="text-2xl font-black text-slate-800 dark:text-white tracking-tight mb-2">Welcome back.</h2>
             <p className="text-slate-500 dark:text-slate-400 text-sm font-semibold mb-6">
               You were away for <span className="text-indigo-600 dark:text-indigo-400 font-bold font-mono">{daysAway} days</span>. 
               Your old streak has ended, but today is the perfect opportunity to build a new study habit.

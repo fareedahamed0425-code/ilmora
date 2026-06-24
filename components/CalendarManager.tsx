@@ -23,7 +23,7 @@ export const CalendarManager: React.FC<CalendarManagerProps> = ({ userProfile, o
 
     // --- CALENDAR SYNC LOGIC ---
     const handleSyncCalendar = () => {
-        let icsContent = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//ZenStudy//Schedule v1.0//EN\nCALSCALE:GREGORIAN\nMETHOD:PUBLISH\n";
+        let icsContent = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//ILMORA//Schedule v1.0//EN\nCALSCALE:GREGORIAN\nMETHOD:PUBLISH\n";
 
         const formatDateTime = (date: Date) => {
             return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
@@ -39,7 +39,7 @@ export const CalendarManager: React.FC<CalendarManagerProps> = ({ userProfile, o
             endDate.setHours(12, 0, 0); // Default 3 hours duration
 
             icsContent += "BEGIN:VEVENT\n";
-            icsContent += `UID:${exam.id}@zenstudy.app\n`;
+            icsContent += `UID:${exam.id}@ilmora.app\n`;
             icsContent += `DTSTAMP:${formatDateTime(new Date())}\n`;
             icsContent += `DTSTART:${formatDateTime(startDate)}\n`;
             icsContent += `DTEND:${formatDateTime(endDate)}\n`;
@@ -72,7 +72,7 @@ export const CalendarManager: React.FC<CalendarManagerProps> = ({ userProfile, o
                 endDate.setHours(startDate.getHours() + 1); // Default 1 hour duration
 
                 icsContent += "BEGIN:VEVENT\n";
-                icsContent += `UID:${event.id}@zenstudy.app\n`;
+                icsContent += `UID:${event.id}@ilmora.app\n`;
                 icsContent += `DTSTAMP:${formatDateTime(new Date())}\n`;
                 icsContent += `DTSTART:${formatDateTime(startDate)}\n`;
                 icsContent += `DTEND:${formatDateTime(endDate)}\n`;
@@ -89,7 +89,7 @@ export const CalendarManager: React.FC<CalendarManagerProps> = ({ userProfile, o
         const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
         const link = document.createElement('a');
         link.href = window.URL.createObjectURL(blob);
-        link.setAttribute('download', 'zenstudy_schedule.ics');
+        link.setAttribute('download', 'ilmora_schedule.ics');
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -287,7 +287,7 @@ export const CalendarManager: React.FC<CalendarManagerProps> = ({ userProfile, o
             {activeTab === 'week' && (
                 <div className="space-y-4">
                     {/* Add Routine Form */}
-                    <div className="bg-white dark:bg-slate-900 p-3 md:p-4 rounded-xl shadow-sm border border-slate-200 dark:border-slate-850 flex flex-col sm:flex-row flex-wrap gap-3 items-stretch sm:items-end">
+                    <div className="bg-white dark:bg-slate-900 p-3 md:p-4 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row flex-wrap gap-3 items-stretch sm:items-end">
                         <div className="flex-1 min-w-[120px]">
                             <label className="text-[10px] font-bold text-slate-500 uppercase mb-1 block">Day</label>
                             <select
@@ -364,7 +364,7 @@ export const CalendarManager: React.FC<CalendarManagerProps> = ({ userProfile, o
                                                     </div>
                                                     <button
                                                         onClick={() => deleteRoutineEvent(event.id)}
-                                                        className="text-slate-350 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity text-xs"
+                                                        className="text-slate-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity text-xs"
                                                     >
                                                         ×
                                                     </button>

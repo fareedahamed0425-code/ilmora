@@ -93,8 +93,8 @@ export const SymptomChecker: React.FC<{ onNavigateToStrategy: (section: Section)
                                     onClick={() => handleAnswer(opt.category, opt.score)}
                                     className="w-full p-2.5 text-left rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-pink-50 dark:hover:bg-pink-900/20 hover:border-pink-300 dark:hover:border-pink-700 transition-all duration-200 flex justify-between items-center group text-xs md:text-sm"
                                 >
-                                    <span className="font-medium text-slate-750 dark:text-slate-200 group-hover:text-pink-900 dark:group-hover:text-pink-100">{opt.text}</span>
-                                    <span className="text-slate-350 group-hover:text-pink-405">➜</span>
+                                    <span className="font-medium text-slate-700 dark:text-slate-200 group-hover:text-pink-900 dark:group-hover:text-pink-100">{opt.text}</span>
+                                    <span className="text-slate-300 group-hover:text-pink-405">➜</span>
                                 </button>
                             ))}
                         </div>
@@ -105,7 +105,7 @@ export const SymptomChecker: React.FC<{ onNavigateToStrategy: (section: Section)
                     <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl p-5 md:p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 relative overflow-hidden text-center">
                         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500"></div>
 
-                        <div className="inline-block p-2.5 rounded-full bg-slate-50 dark:bg-slate-850 mb-3 text-3xl shadow-sm border border-slate-100 dark:border-slate-750">
+                        <div className="inline-block p-2.5 rounded-full bg-slate-50 dark:bg-slate-800 mb-3 text-3xl shadow-sm border border-slate-100 dark:border-slate-700">
                             {dominant === 'Physical' ? '🩹' : dominant === 'Emotional' ? '❤️‍🩹' : '🧠'}
                         </div>
 
@@ -122,7 +122,7 @@ export const SymptomChecker: React.FC<{ onNavigateToStrategy: (section: Section)
                             </div>
                         </div>
 
-                        <p className="text-xs text-slate-600 dark:text-slate-350 mb-4.5 leading-relaxed max-w-lg mx-auto font-medium">
+                        <p className="text-xs text-slate-600 dark:text-slate-300 mb-4.5 leading-relaxed max-w-lg mx-auto font-medium">
                             {prescription.desc}
                         </p>
 

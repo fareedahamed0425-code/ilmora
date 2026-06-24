@@ -25,7 +25,7 @@ export const AICoach: React.FC<AICoachProps> = ({
   // Chat Coach State
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { id: '1', role: 'model', text: `Greetings, ${userProfile?.name}! I am Zen, your AI Study Coach. \n\nI'm here to help you master your subjects, manage stress, and provide real-time information. How can I support you today?` }
+    { id: '1', role: 'model', text: `Greetings, ${userProfile?.name}! I am the ILMORA Mentor, your AI Study Coach. \n\nI'm here to help you master your subjects, manage stress, and provide real-time information. How can I support you today?` }
   ]);
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -103,7 +103,7 @@ export const AICoach: React.FC<AICoachProps> = ({
         parts.push("You've logged feeling Tired. Lack of physical rest disrupts memory consolidation (REM sleep). Consider using the Bedtime Sleep Calculator before studying late.");
       }
     } else {
-      parts.push("No recent mood checks logged. Checking in regularly allows Zen to track and optimize your cognitive load.");
+      parts.push("No recent mood checks logged. Checking in regularly allows the ILMORA Mentor to track and optimize your cognitive load.");
     }
 
     // Consistency & Streak
@@ -130,12 +130,12 @@ export const AICoach: React.FC<AICoachProps> = ({
     if (scheduleCount > 0) {
       parts.push(`Your schedule has ${scheduleCount} synchronized classes or study blocks, establishing a reliable daily envelope.`);
     } else {
-      parts.push("Your calendar schedule is currently empty. Syncing routines helps Zen customize planning suggestions.");
+      parts.push("Your calendar schedule is currently empty. Syncing routines helps the ILMORA Mentor customize planning suggestions.");
     }
 
     // Target Goals
     if (user.targetCGPA) {
-      parts.push(`Targeting a CGPA of ${user.targetCGPA} is ambitious; your daily study goal is ${user.dailyStudyGoal || 2} hours. Zen is here to guide you step-by-step.`);
+      parts.push(`Targeting a CGPA of ${user.targetCGPA} is ambitious; your daily study goal is ${user.dailyStudyGoal || 2} hours. The ILMORA Mentor is here to guide you step-by-step.`);
     }
 
     return parts.join(" ");
@@ -143,7 +143,7 @@ export const AICoach: React.FC<AICoachProps> = ({
 
   const getYerkesDodsonPlacement = (stressLevel: number) => {
     if (stressLevel <= 3) return { zone: 'Under-arousal (Low Motivation)', advice: 'Stress is too low to spark action. Try setting micro-deadlines.' };
-    if (stressLevel <= 7) return { zone: 'Optimal Performance (Zen Zone)', advice: 'Perfect balance of focus and alertness. Keep going!' };
+    if (stressLevel <= 7) return { zone: 'Optimal Performance (Optimal Zone)', advice: 'Perfect balance of focus and alertness. Keep going!' };
     return { zone: 'Overload (Burnout/Anxiety)', advice: 'Anxiety is hijacking your prefrontal cortex. Switch to breathing exercises.' };
   };
 
@@ -184,11 +184,11 @@ export const AICoach: React.FC<AICoachProps> = ({
       <div className="w-full md:w-52 flex-shrink-0 bg-slate-50/50 dark:bg-slate-950/40 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800 p-2 md:p-3 flex flex-col justify-between">
         <div className="space-y-3">
           {/* Module Label */}
-          <div className="hidden md:flex items-center gap-2 px-2 py-1.5 bg-gradient-to-r from-indigo-650 to-purple-650 rounded-xl text-white">
+          <div className="hidden md:flex items-center gap-2 px-2 py-1.5 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl text-white">
             <span className="text-base">🎓</span>
             <div className="min-w-0">
-              <h3 className="text-xs font-black truncate">Zen AI Tutor</h3>
-              <p className="text-[7px] uppercase font-bold text-indigo-150 tracking-wider">Intelligence Brain</p>
+              <h3 className="text-xs font-black truncate">ILMORA Mentor</h3>
+              <p className="text-[7px] uppercase font-bold text-indigo-100 tracking-wider">Intelligence Brain</p>
             </div>
           </div>
 
@@ -236,7 +236,7 @@ export const AICoach: React.FC<AICoachProps> = ({
                   🧘
                 </div>
                 <div className="space-y-2">
-                  <h4 className="font-black text-sm text-indigo-100">Zen AI Academic Mentor</h4>
+                  <h4 className="font-black text-sm text-indigo-100">ILMORA Academic Mentor</h4>
                   <p className="text-xs font-semibold leading-relaxed text-white">
                     "{mentorInsightText}"
                   </p>
@@ -267,7 +267,7 @@ export const AICoach: React.FC<AICoachProps> = ({
             {/* Daily study goal indicator */}
             <div className="glass p-4.5 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center justify-between gap-4">
               <div>
-                <h4 className="text-xs font-bold text-slate-750 dark:text-slate-200">Daily Study Goal Progress</h4>
+                <h4 className="text-xs font-bold text-slate-700 dark:text-slate-200">Daily Study Goal Progress</h4>
                 <p className="text-[10px] text-slate-500 mt-0.5">Target: {currentProfile.dailyStudyGoal || 2} hours per day</p>
               </div>
               <div className="flex items-center gap-2.5">
@@ -315,7 +315,7 @@ export const AICoach: React.FC<AICoachProps> = ({
               <div>
                 <h4 className="text-sm font-bold text-slate-800 dark:text-white">Cognitive Analysis (Yerkes-Dodson Law)</h4>
                 <p className="text-slate-500 dark:text-slate-400 text-xs mt-0.5">
-                  Optimal performance occurs at moderate stress levels. Current stress level: <span className="font-bold text-indigo-650 dark:text-indigo-400 font-mono">{currentProfile.stressLevel}/10</span>.
+                  Optimal performance occurs at moderate stress levels. Current stress level: <span className="font-bold text-indigo-600 dark:text-indigo-400 font-mono">{currentProfile.stressLevel}/10</span>.
                 </p>
               </div>
 
@@ -344,7 +344,7 @@ export const AICoach: React.FC<AICoachProps> = ({
                   <span className="text-[8px] font-black uppercase text-indigo-600 dark:text-indigo-400 block mb-0.5">Yerkes-Dodson Zone</span>
                   <span className="font-bold text-slate-800 dark:text-indigo-200">{placement.zone}</span>
                 </div>
-                <div className="text-right text-[10px] text-indigo-750 dark:text-indigo-350 max-w-[50%] font-medium">
+                <div className="text-right text-[10px] text-indigo-700 dark:text-indigo-300 max-w-[50%] font-medium">
                   {placement.advice}
                 </div>
               </div>
@@ -371,7 +371,7 @@ export const AICoach: React.FC<AICoachProps> = ({
                     Maintaining session frequency directly trains academic memory retention.
                   </p>
                 </div>
-                <div className="flex justify-between items-center bg-slate-50 dark:bg-slate-850 p-3.5 rounded-xl border border-slate-200/50 dark:border-slate-750">
+                <div className="flex justify-between items-center bg-slate-50 dark:bg-slate-800 p-3.5 rounded-xl border border-slate-200/50 dark:border-slate-700">
                   <div>
                     <span className="text-[8px] font-black uppercase text-slate-400">Consistency score</span>
                     <p className="text-xl font-bold font-mono text-indigo-600 dark:text-indigo-400">{currentProfile.consistencyScore}%</p>
@@ -389,12 +389,23 @@ export const AICoach: React.FC<AICoachProps> = ({
                   <h4 className="text-sm font-bold text-slate-800 dark:text-white mb-2">Distraction Analysis</h4>
                   <p className="text-slate-500 dark:text-slate-400 text-xs leading-normal mb-4">
                     The focus shield tracks tab deviations. Frequent browser context switches degrade cognitive focus cycles.
+                    {(currentProfile.tabSwitchCount || 0) > 5 && (
+                      <span className="block mt-2 font-bold text-red-500 dark:text-red-400">
+                        ⚠️ You have shifted tabs {currentProfile.tabSwitchCount} times. You should minimize these distractions to maintain focus!
+                      </span>
+                    )}
                   </p>
                 </div>
                 <div className="bg-red-500/5 dark:bg-red-950/10 p-3.5 rounded-xl border border-red-200/50 dark:border-red-950/30 flex justify-between items-center">
-                  <div>
-                    <span className="text-[8px] font-black uppercase text-red-655 dark:text-red-300">Device Screen Time</span>
-                    <p className="text-lg font-bold font-mono text-red-600 dark:text-red-400 mt-1">{currentProfile.dailyScreenTime || 'N/A'} Hours</p>
+                  <div className="flex gap-4">
+                    <div>
+                      <span className="text-[8px] font-black uppercase text-red-655 dark:text-red-300">Device Screen Time</span>
+                      <p className="text-lg font-bold font-mono text-red-600 dark:text-red-400 mt-1">{currentProfile.dailyScreenTime || 'N/A'} Hours</p>
+                    </div>
+                    <div>
+                      <span className="text-[8px] font-black uppercase text-red-655 dark:text-red-300">Tab Shifts</span>
+                      <p className="text-lg font-bold font-mono text-red-600 dark:text-red-400 mt-1">{currentProfile.tabSwitchCount || 0}</p>
+                    </div>
                   </div>
                   {onNavigate && (
                     <button 
@@ -427,7 +438,7 @@ export const AICoach: React.FC<AICoachProps> = ({
               </div>
               <div>
                 <span className="text-[8px] font-black uppercase text-slate-400">University</span>
-                <p className="text-xs font-bold text-slate-800 dark:text-white mt-1 truncate">{currentProfile.university || 'ZenITH Institute'}</p>
+                <p className="text-xs font-bold text-slate-800 dark:text-white mt-1 truncate">{currentProfile.university || 'ILMORA Institute'}</p>
               </div>
               <div>
                 <span className="text-[8px] font-black uppercase text-slate-400">Semester</span>
@@ -448,13 +459,13 @@ export const AICoach: React.FC<AICoachProps> = ({
                     const diffDays = Math.ceil((new Date(ex.date).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24));
                     const isUpcoming = diffDays >= 0;
                     return (
-                      <div key={ex.id} className="flex justify-between items-center bg-slate-50 dark:bg-slate-850 p-3 rounded-lg border border-slate-200/50 dark:border-slate-750 text-xs">
+                      <div key={ex.id} className="flex justify-between items-center bg-slate-50 dark:bg-slate-800 p-3 rounded-lg border border-slate-200/50 dark:border-slate-700 text-xs">
                         <div className="flex items-center gap-2">
                           <span className="text-base">📅</span>
-                          <span className="font-bold text-slate-750 dark:text-slate-200">{ex.subject}</span>
+                          <span className="font-bold text-slate-700 dark:text-slate-200">{ex.subject}</span>
                         </div>
                         <div className="text-right">
-                          <p className="font-mono font-bold text-[10px] text-slate-655 dark:text-slate-350">{ex.date}</p>
+                          <p className="font-mono font-bold text-[10px] text-slate-655 dark:text-slate-300">{ex.date}</p>
                           <p className={`text-[9px] font-black mt-0.5 uppercase tracking-wider ${isUpcoming ? (diffDays <= 3 ? 'text-red-500' : 'text-indigo-600') : 'text-slate-400'}`}>
                             {isUpcoming ? `${diffDays} days left` : 'Completed'}
                           </p>
@@ -464,7 +475,7 @@ export const AICoach: React.FC<AICoachProps> = ({
                   })}
                 </div>
               ) : (
-                <p className="text-xs text-slate-450 text-center py-4">No upcoming exams loaded. Set exams in Profile page.</p>
+                <p className="text-xs text-slate-400 text-center py-4">No upcoming exams loaded. Set exams in Profile page.</p>
               )}
             </div>
           </div>
@@ -485,13 +496,13 @@ export const AICoach: React.FC<AICoachProps> = ({
                   <h4 className="text-sm font-bold text-slate-800 dark:text-white">Calculated Burnout Risk Index</h4>
                   <p className="text-slate-500 dark:text-slate-400 text-xs mt-0.5">Based on study hours, mood check-ins, and session timings.</p>
                 </div>
-                <span className="text-2xl font-bold font-mono text-red-550 dark:text-red-400">{currentProfile.burnoutRiskScore || 10}%</span>
+                <span className="text-2xl font-bold font-mono text-red-500 dark:text-red-400">{currentProfile.burnoutRiskScore || 10}%</span>
               </div>
               
               {/* Progress bar */}
               <div className="w-full bg-slate-200 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden mt-3">
                 <div 
-                  className={`h-full transition-all duration-700 ${currentProfile.burnoutRiskScore && currentProfile.burnoutRiskScore > 70 ? 'bg-red-550' : currentProfile.burnoutRiskScore && currentProfile.burnoutRiskScore > 40 ? 'bg-amber-500' : 'bg-emerald-500'}`} 
+                  className={`h-full transition-all duration-700 ${currentProfile.burnoutRiskScore && currentProfile.burnoutRiskScore > 70 ? 'bg-red-500' : currentProfile.burnoutRiskScore && currentProfile.burnoutRiskScore > 40 ? 'bg-amber-500' : 'bg-emerald-500'}`} 
                   style={{ width: `${currentProfile.burnoutRiskScore || 10}%` }}
                 ></div>
               </div>
@@ -509,7 +520,7 @@ export const AICoach: React.FC<AICoachProps> = ({
               {currentProfile.moodLogs && currentProfile.moodLogs.length > 0 ? (
                 <div className="max-h-36 overflow-y-auto space-y-1.5 scrollbar-hide">
                   {currentProfile.moodLogs.slice(-6).reverse().map((log, idx) => (
-                    <div key={idx} className="flex justify-between items-center text-xs bg-slate-50 dark:bg-slate-850 px-3 py-1.5 rounded border border-slate-200/40 dark:border-slate-750">
+                    <div key={idx} className="flex justify-between items-center text-xs bg-slate-50 dark:bg-slate-800 px-3 py-1.5 rounded border border-slate-200/40 dark:border-slate-700">
                       <span className="font-bold text-slate-700 dark:text-slate-205">{log.date}</span>
                       <span className="font-black text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20 px-2 py-0.5 rounded text-[10px]">
                         {log.mood}
@@ -518,7 +529,7 @@ export const AICoach: React.FC<AICoachProps> = ({
                   ))}
                 </div>
               ) : (
-                <p className="text-xs text-slate-450 text-center py-3">No mood check-ins completed today. Log moods in the dashboard.</p>
+                <p className="text-xs text-slate-400 text-center py-3">No mood check-ins completed today. Log moods in the dashboard.</p>
               )}
             </div>
           </div>
@@ -538,14 +549,14 @@ export const AICoach: React.FC<AICoachProps> = ({
               {currentProfile.achievements && currentProfile.achievements.length > 0 ? (
                 <div className="grid grid-cols-2 gap-2">
                   {currentProfile.achievements.map((ach, idx) => (
-                    <div key={idx} className="flex items-center gap-2 bg-slate-50 dark:bg-slate-850 p-2 rounded-lg border border-slate-200/50 dark:border-slate-750 text-[10px] font-bold">
+                    <div key={idx} className="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 p-2 rounded-lg border border-slate-200/50 dark:border-slate-700 text-[10px] font-bold">
                       <span className="text-base">🏆</span>
-                      <span className="text-slate-850 dark:text-slate-200">{ach}</span>
+                      <span className="text-slate-800 dark:text-slate-200">{ach}</span>
                     </div>
                   ))}
                 </div>
               ) : (
-                <p className="text-xs text-slate-450 text-center py-4">No achievements unlocked yet. Accumulate study sessions to trigger unlocks.</p>
+                <p className="text-xs text-slate-400 text-center py-4">No achievements unlocked yet. Accumulate study sessions to trigger unlocks.</p>
               )}
             </div>
 
@@ -579,7 +590,7 @@ export const AICoach: React.FC<AICoachProps> = ({
                   <span className="text-lg shrink-0 mt-0.5">⚠️</span>
                   <div className="space-y-1">
                     <h4 className="font-bold text-xs text-red-800 dark:text-red-200">High Stress Alert detected</h4>
-                    <p className="text-slate-655 dark:text-slate-350 text-[11px] leading-relaxed">
+                    <p className="text-slate-655 dark:text-slate-300 text-[11px] leading-relaxed">
                       Your stress level is at {currentProfile.stressLevel}/10. Switch off cramming and complete an Instant Calm breathing exercise or sleep calculation in the Toolbox.
                     </p>
                   </div>
@@ -589,7 +600,7 @@ export const AICoach: React.FC<AICoachProps> = ({
                   <span className="text-lg shrink-0 mt-0.5">✓</span>
                   <div className="space-y-1">
                     <h4 className="font-bold text-xs text-emerald-800 dark:text-emerald-200 font-black">Optimal Stress Levels</h4>
-                    <p className="text-slate-655 dark:text-slate-350 text-[11px] leading-relaxed">
+                    <p className="text-slate-655 dark:text-slate-300 text-[11px] leading-relaxed">
                       Your current stress level is under control. This is the optimal window to start study blocks in the AI Planner.
                     </p>
                   </div>
@@ -602,7 +613,7 @@ export const AICoach: React.FC<AICoachProps> = ({
                   <span className="text-lg shrink-0 mt-0.5">🧘</span>
                   <div className="space-y-1">
                     <h4 className="font-bold text-xs text-amber-800 dark:text-amber-200">Elevated Burnout Risk Index</h4>
-                    <p className="text-slate-655 dark:text-slate-350 text-[11px] leading-relaxed">
+                    <p className="text-slate-655 dark:text-slate-300 text-[11px] leading-relaxed">
                       Burnout score is at {currentProfile.burnoutRiskScore}%. Lower session density, increase short break intervals, and log daily screen hours to manage fatigue.
                     </p>
                   </div>
@@ -615,7 +626,7 @@ export const AICoach: React.FC<AICoachProps> = ({
                   <span className="text-lg shrink-0 mt-0.5">🔥</span>
                   <div className="space-y-1">
                     <h4 className="font-bold text-xs text-indigo-800 dark:text-indigo-200 font-black">Habit Starter Routine</h4>
-                    <p className="text-slate-655 dark:text-slate-350 text-[11px] leading-relaxed">
+                    <p className="text-slate-655 dark:text-slate-300 text-[11px] leading-relaxed">
                       Streak is at 0. Start a fresh baseline: execute a 15-minute Pomodoro timer or add and complete a routine assignment to launch your streak.
                     </p>
                   </div>
@@ -625,7 +636,7 @@ export const AICoach: React.FC<AICoachProps> = ({
                   <span className="text-lg shrink-0 mt-0.5">⚡</span>
                   <div className="space-y-1">
                     <h4 className="font-bold text-xs text-indigo-800 dark:text-indigo-200 font-black">Streak Protection active</h4>
-                    <p className="text-slate-655 dark:text-slate-350 text-[11px] leading-relaxed">
+                    <p className="text-slate-655 dark:text-slate-300 text-[11px] leading-relaxed">
                       You're carrying a {currentProfile.studyStreak} day streak. Complete a study event today to maintain and reinforce this habit loop.
                     </p>
                   </div>
@@ -638,7 +649,7 @@ export const AICoach: React.FC<AICoachProps> = ({
                   <span className="text-lg shrink-0 mt-0.5">📅</span>
                   <div className="space-y-1">
                     <h4 className="font-bold text-xs text-purple-800 dark:text-purple-200">Exam Countdown optimizer</h4>
-                    <p className="text-slate-655 dark:text-slate-350 text-[11px] leading-relaxed">
+                    <p className="text-slate-655 dark:text-slate-300 text-[11px] leading-relaxed">
                       You have {currentProfile.exams.length} exams registered. Launch the AI Planner to schedule specific micro-study units for preparation.
                     </p>
                   </div>
@@ -669,7 +680,7 @@ export const AICoach: React.FC<AICoachProps> = ({
                       rounded-xl px-3 py-2 text-xs leading-relaxed shadow-sm backdrop-blur-sm transition-all duration-300
                       ${msg.role === 'user'
                         ? 'bg-indigo-600 text-white rounded-tr-none border border-indigo-500'
-                        : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 rounded-tl-none border border-slate-150 dark:border-slate-700'}
+                        : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 rounded-tl-none border border-slate-100 dark:border-slate-700'}
                       `}>
                       <div className="whitespace-pre-wrap font-medium">
                         {msg.text}
@@ -698,7 +709,7 @@ export const AICoach: React.FC<AICoachProps> = ({
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder="Ask Zen Mentor..."
+                  placeholder="Ask ILMORA Mentor..."
                   className="flex-1 bg-white dark:bg-slate-800 text-slate-800 dark:text-white placeholder-slate-400 rounded-lg px-3 h-10 outline-none focus:ring-2 focus:ring-indigo-500/20 border border-slate-200 dark:border-slate-700 text-xs transition-all shadow-sm"
                   disabled={isLoading}
                 />

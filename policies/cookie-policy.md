@@ -1,8 +1,8 @@
-# Cookie and Local Storage Policy for ZenStudy
+# Cookie and Local Storage Policy for ILMORA MentorStudy
 
-**Last Updated:** June 23, 2026
+**Last Updated:** June 24, 2026
 
-This Cookie and Local Storage Policy explains how ZenStudy ("we," "our," or "us") uses cookies, local browser storage, and similar technologies to recognize you when you visit our web application. It explains what these technologies are, why we use them, and your rights to control our use of them.
+This Cookie and Local Storage Policy explains how ILMORA MentorStudy ("we," "our," or "us") uses cookies, local browser storage, and similar technologies to recognize you when you visit our web application. It explains what these technologies are, why we use them, and your rights to control our use of them.
 
 ---
 
@@ -13,10 +13,10 @@ This Cookie and Local Storage Policy explains how ZenStudy ("we," "our," or "us"
 
 ---
 
-## 2. Does ZenStudy Use Third-Party Tracking or Advertising Cookies?
+## 2. Does ILMORA MentorStudy Use Third-Party Tracking or Advertising Cookies?
 
 > [!IMPORTANT]
-> **No.** ZenStudy does not serve third-party marketing, analytics, or behavioral advertising cookies. We do not track your browsing habits across other websites, nor do we sell your profile information to advertisers.
+> **No.** ILMORA MentorStudy does not serve third-party marketing, analytics, or behavioral advertising cookies. We do not track your browsing habits across other websites, nor do we sell your profile information to advertisers.
 
 ---
 
@@ -34,7 +34,7 @@ If you create an account and log in, the Firebase Authentication SDK utilizes lo
 We store layout configurations, theme settings, and guest account data locally in your browser:
 * `zen_theme`: Remembers your preference between Light Mode and Dark Mode.
 * `zen_sidebar_collapsed`: Remembers if you collapsed the navigation sidebar to save screen space (`true` or `false`).
-* `zen_tutor_menu_expanded`: Remembers if you expanded the Zen AI Tutor's nested sub-routes group.
+* `zen_tutor_menu_expanded`: Remembers if you expanded the ILMORA Mentor's nested sub-routes group.
 * `zen_dashboard_tasks`: Holds your daily todo checklist items.
 * `zen_recent_accounts`: Caches the names, emails, and profile initials of recently accessed profiles on this device for fast login switching.
 * **Guest Profile Data:** If using the app in Guest Mode (without logging in), all your student records, schedule calendar routines, stress levels, and achievement counts are stored under client local keys.
@@ -44,8 +44,8 @@ We store layout configurations, theme settings, and guest account data locally i
 ## 4. How Can You Control Cookies and Local Storage?
 
 Most web browsers allow you to manage cookies and web storage settings:
-* **Clear Site Data:** You can purge all Local Storage records, Firebase session caches, and settings at any time by going to your browser's security settings and selecting "Clear browsing data / Cookies and site data" for the ZenStudy domain. **Please note that doing this in Guest Mode will permanently delete your guest student profile, streaks, and tasks.**
-* **Block Storage:** You can configure your browser to block local storage or third-party cookies, but doing so will prevent ZenStudy from keeping you logged in or saving your progress.
+* **Clear Site Data:** You can purge all Local Storage records, Firebase session caches, and settings at any time by going to your browser's security settings and selecting "Clear browsing data / Cookies and site data" for the ILMORA MentorStudy domain. **Please note that doing this in Guest Mode will permanently delete your guest student profile, streaks, and tasks.**
+* **Block Storage:** You can configure your browser to block local storage or third-party cookies, but doing so will prevent ILMORA MentorStudy from keeping you logged in or saving your progress.
 
 ---
 

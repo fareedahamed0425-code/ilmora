@@ -297,6 +297,8 @@ export const App: React.FC = () => {
 
   const [sessionTime, setSessionTime] = useState(0);
   const [newTaskText, setNewTaskText] = useState('');
+  const [editingTaskId, setEditingTaskId] = useState<string | null>(null);
+  const [editingTaskText, setEditingTaskText] = useState('');
   const [dashboardTasks, setDashboardTasks] = useState<{ id: string; text: string; completed: boolean }[]>(() => {
     try {
       const saved = localStorage.getItem('zen_dashboard_tasks');
@@ -343,6 +345,25 @@ export const App: React.FC = () => {
 
   const handleDeleteTask = (taskId: string) => {
     setDashboardTasks(prev => prev.filter(t => t.id !== taskId));
+  };
+
+  const startEditingTask = (taskId: string, currentText: string) => {
+    setEditingTaskId(taskId);
+    setEditingTaskText(currentText);
+  };
+
+  const saveEditedTask = (taskId: string) => {
+    if (!editingTaskText.trim()) return;
+    setDashboardTasks(prev => prev.map(t => 
+      t.id === taskId ? { ...t, text: editingTaskText.trim() } : t
+    ));
+    setEditingTaskId(null);
+    setEditingTaskText('');
+  };
+
+  const cancelEditingTask = () => {
+    setEditingTaskId(null);
+    setEditingTaskText('');
   };
 
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
@@ -410,6 +431,26 @@ export const App: React.FC = () => {
       }
     }, 60000);
     return () => clearInterval(interval);
+  }, [currentUser]);
+
+  // Track tab switches (Focus interruptions)
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.hidden && currentUser) {
+        setCurrentUser(prev => {
+          if (!prev) return prev;
+          const updated = {
+            ...prev,
+            tabSwitchCount: (prev.tabSwitchCount || 0) + 1
+          };
+          saveUserProfile(updated);
+          return updated;
+        });
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
   }, [currentUser]);
 
   // Streak Expiry, automatic streak freeze, and returning user checks on profile load
@@ -703,14 +744,14 @@ export const App: React.FC = () => {
             {renderStreakFreezeBanner()}
 
             {/* Compact Welcome Header Card */}
-            <div className="bg-gradient-to-br from-indigo-700 via-indigo-650 to-purple-650 text-white rounded-2xl p-4 md:p-5 shadow-sm relative overflow-hidden flex flex-col md:flex-row justify-between items-start md:items-center gap-4 min-h-[140px] md:min-h-[160px] lg:min-h-[185px]">
+            <div className="bg-gradient-to-br from-indigo-700 via-indigo-600 to-purple-600 text-white rounded-2xl p-4 md:p-5 shadow-sm relative overflow-hidden flex flex-col md:flex-row justify-between items-start md:items-center gap-4 min-h-[140px] md:min-h-[160px] lg:min-h-[185px]">
               <div className="relative z-10 space-y-2">
                 <span className="inline-block px-2.5 py-0.5 bg-white/10 backdrop-blur-md rounded-full text-[8px] md:text-[9px] font-black tracking-wider uppercase border border-white/15 shadow-sm">Workspace active ✨</span>
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-black tracking-tighter leading-none">
                   Welcome Back, {currentUser.name}
                 </h2>
                 <div className="space-y-1 max-w-sm">
-                  <div className="flex justify-between items-center text-[10px] md:text-xs text-indigo-150 font-bold">
+                  <div className="flex justify-between items-center text-[10px] md:text-xs text-indigo-100 font-bold">
                     <span>Goal: {hoursStudied.toFixed(1)} / {dailyGoal} Hours</span>
                     <span>{progressPercentage}%</span>
                   </div>
@@ -725,7 +766,7 @@ export const App: React.FC = () => {
                 <span className="text-2xl animate-float">🔥</span>
                 <div>
                   <h4 className="text-xs font-black uppercase tracking-wider text-amber-300">{streak} Days Streak</h4>
-                  <p className="text-[8px] font-bold text-indigo-150 mt-0.5 uppercase tracking-widest">All-time best: {bestStreakVal}</p>
+                  <p className="text-[8px] font-bold text-indigo-100 mt-0.5 uppercase tracking-widest">All-time best: {bestStreakVal}</p>
                 </div>
               </div>
 
@@ -738,7 +779,7 @@ export const App: React.FC = () => {
                 { id: Section.PLANNING, title: 'AI Planner', desc: 'Optimize roadmap', icon: '🚀', color: 'emerald' },
                 { id: Section.CALENDAR, title: 'Schedule', desc: 'Manage calendar', icon: '🗓️', color: 'indigo' },
                 { id: Section.NOTES, title: 'Note Archive', desc: 'Summarize notes', icon: '📝', color: 'amber' },
-                { id: Section.MINDSET, title: 'Zen AI Tutor', desc: 'Personal coaching', icon: '🎓', color: 'purple' },
+                { id: Section.MINDSET, title: 'ILMORA Mentor', desc: 'Personal coaching', icon: '🎓', color: 'purple' },
               ].map(action => (
                 <button
                   key={action.id}
@@ -790,7 +831,7 @@ export const App: React.FC = () => {
                     <button
                       type="submit"
                       disabled={!newTaskText.trim()}
-                      className="bg-indigo-650 hover:bg-indigo-750 text-white font-bold px-3.5 rounded-xl text-xs disabled:opacity-50 transition-all h-9 flex items-center justify-center"
+                      className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-3.5 rounded-xl text-xs disabled:opacity-50 transition-all h-9 flex items-center justify-center"
                     >
                       + Add
                     </button>
@@ -802,7 +843,7 @@ export const App: React.FC = () => {
                       {dashboardTasks.map(task => (
                         <div 
                           key={task.id} 
-                          className={`flex items-center justify-between p-2.5 rounded-xl border border-slate-200/50 dark:border-slate-800 bg-white/50 dark:bg-slate-850/50 text-xs transition-all duration-200
+                          className={`flex items-center justify-between p-2.5 rounded-xl border border-slate-200/50 dark:border-slate-800 bg-white/50 dark:bg-slate-800/50 text-xs transition-all duration-200
                             ${task.completed ? 'opacity-60 bg-slate-50 dark:bg-slate-900/20' : 'hover:border-indigo-500/25'}
                           `}
                         >
@@ -811,23 +852,72 @@ export const App: React.FC = () => {
                               onClick={() => handleToggleTask(task.id)}
                               className={`w-4 h-4 rounded border flex items-center justify-center font-bold text-[9px] transition-all select-none
                                 ${task.completed 
-                                  ? 'bg-indigo-600 border-indigo-650 text-white' 
+                                  ? 'bg-indigo-600 border-indigo-600 text-white' 
                                   : 'border-slate-300 dark:border-slate-600 hover:border-indigo-500'}
                               `}
                             >
                               {task.completed && '✓'}
                             </button>
-                            <span className={`font-medium text-slate-800 dark:text-slate-200 truncate ${task.completed ? 'line-through text-slate-400 dark:text-slate-500' : ''}`}>
-                              {task.text}
-                            </span>
+                            {editingTaskId === task.id ? (
+                              <div className="flex-1 min-w-0 pr-2">
+                                <input
+                                  type="text"
+                                  value={editingTaskText}
+                                  onChange={(e) => setEditingTaskText(e.target.value)}
+                                  onKeyDown={(e) => {
+                                    if (e.key === 'Enter') saveEditedTask(task.id);
+                                    if (e.key === 'Escape') cancelEditingTask();
+                                  }}
+                                  autoFocus
+                                  className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-md px-2 py-1 text-xs outline-none focus:ring-1 focus:ring-indigo-500/50 text-slate-800 dark:text-white"
+                                />
+                              </div>
+                            ) : (
+                              <span 
+                                onDoubleClick={() => startEditingTask(task.id, task.text)}
+                                className={`font-medium text-slate-800 dark:text-slate-200 truncate cursor-text ${task.completed ? 'line-through text-slate-400 dark:text-slate-500' : ''}`}
+                              >
+                                {task.text}
+                              </span>
+                            )}
                           </div>
-                          <button
-                            onClick={() => handleDeleteTask(task.id)}
-                            className="text-slate-400 hover:text-red-500 text-xs px-1.5 py-0.5 rounded hover:bg-red-50 dark:hover:bg-red-950/20 transition-all"
-                            title="Delete Task"
-                          >
-                            ✕
-                          </button>
+                          <div className="flex items-center gap-0.5 shrink-0">
+                            {editingTaskId === task.id ? (
+                              <>
+                                <button
+                                  onClick={() => saveEditedTask(task.id)}
+                                  className="text-emerald-500 hover:text-emerald-600 text-xs px-1.5 py-0.5 rounded hover:bg-emerald-50 dark:hover:bg-emerald-950/20 transition-all font-bold"
+                                  title="Save"
+                                >
+                                  ✓
+                                </button>
+                                <button
+                                  onClick={cancelEditingTask}
+                                  className="text-slate-400 hover:text-red-500 text-xs px-1.5 py-0.5 rounded hover:bg-red-50 dark:hover:bg-red-950/20 transition-all font-bold"
+                                  title="Cancel"
+                                >
+                                  ✕
+                                </button>
+                              </>
+                            ) : (
+                              <>
+                                <button
+                                  onClick={() => startEditingTask(task.id, task.text)}
+                                  className="text-slate-400 hover:text-indigo-500 text-xs px-1.5 py-0.5 rounded hover:bg-indigo-50 dark:hover:bg-indigo-950/20 transition-all font-bold"
+                                  title="Edit Task"
+                                >
+                                  ✎
+                                </button>
+                                <button
+                                  onClick={() => handleDeleteTask(task.id)}
+                                  className="text-slate-400 hover:text-red-500 text-xs px-1.5 py-0.5 rounded hover:bg-red-50 dark:hover:bg-red-950/20 transition-all font-bold"
+                                  title="Delete Task"
+                                >
+                                  ✕
+                                </button>
+                              </>
+                            )}
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -854,7 +944,7 @@ export const App: React.FC = () => {
                   {todaysEvents.length > 0 ? (
                     <div className="space-y-2.5 max-h-56 overflow-y-auto scrollbar-hide">
                       {todaysEvents.map(ev => (
-                        <div key={ev.id} className="flex justify-between items-center bg-slate-50/50 dark:bg-slate-850/50 p-3 rounded-xl border border-slate-200/40 dark:border-slate-850 text-xs">
+                        <div key={ev.id} className="flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/50 p-3 rounded-xl border border-slate-200/40 dark:border-slate-800 text-xs">
                           <div className="flex items-center gap-3">
                             <span className="text-base">
                               {ev.type === 'class' ? '🏫' : ev.type === 'study' ? '📖' : '☕'}
@@ -864,7 +954,7 @@ export const App: React.FC = () => {
                               <span className="text-[8px] font-black uppercase tracking-wider text-slate-400">{ev.type}</span>
                             </div>
                           </div>
-                          <span className="font-mono font-bold text-indigo-650 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/20 px-2 py-0.5 rounded text-[10px]">
+                          <span className="font-mono font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/20 px-2 py-0.5 rounded text-[10px]">
                             {ev.time}
                           </span>
                         </div>
@@ -892,15 +982,15 @@ export const App: React.FC = () => {
                 <div className="glass p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
                   <h3 className="text-xs font-black uppercase text-slate-400 tracking-widest leading-none">Weekly Progress</h3>
                   <div className="grid grid-cols-3 gap-2.5 text-center">
-                    <div className="bg-slate-50/80 dark:bg-slate-850 p-2.5 rounded-xl border border-slate-200/50 dark:border-slate-800">
-                      <span className="text-[7px] font-black uppercase text-slate-450 block">Hours worked</span>
+                    <div className="bg-slate-50/80 dark:bg-slate-800 p-2.5 rounded-xl border border-slate-200/50 dark:border-slate-800">
+                      <span className="text-[7px] font-black uppercase text-slate-400 block">Hours worked</span>
                       <span className="text-base font-bold font-mono text-indigo-600 dark:text-indigo-400 block mt-1">{(currentUser.totalStudyHours || 0).toFixed(1)}h</span>
                     </div>
-                    <div className="bg-slate-50/80 dark:bg-slate-850 p-2.5 rounded-xl border border-slate-200/50 dark:border-slate-800">
-                      <span className="text-[7px] font-black uppercase text-slate-450 block">Consistency</span>
-                      <span className="text-base font-bold font-mono text-emerald-500 dark:text-emerald-450 block mt-1">{currentUser.consistencyScore || 30}%</span>
+                    <div className="bg-slate-50/80 dark:bg-slate-800 p-2.5 rounded-xl border border-slate-200/50 dark:border-slate-800">
+                      <span className="text-[7px] font-black uppercase text-slate-400 block">Consistency</span>
+                      <span className="text-base font-bold font-mono text-emerald-500 dark:text-emerald-400 block mt-1">{currentUser.consistencyScore || 30}%</span>
                     </div>
-                    <div className="bg-slate-50/80 dark:bg-slate-850 p-2.5 rounded-xl border border-slate-200/50 dark:border-slate-800">
+                    <div className="bg-slate-50/80 dark:bg-slate-800 p-2.5 rounded-xl border border-slate-200/50 dark:border-slate-800">
                       <span className="text-[7px] font-black uppercase text-slate-455 block font-sans">Rank tier</span>
                       <span className="text-[9px] font-black text-slate-800 dark:text-slate-200 block mt-2 truncate">{currentUser.rank || 'Beginner'}</span>
                     </div>
@@ -936,7 +1026,7 @@ export const App: React.FC = () => {
                         const diffDays = Math.ceil((new Date(ex.date).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24));
                         const isUpcoming = diffDays >= 0;
                         return (
-                          <div key={ex.id} className="flex justify-between items-center text-[11px] bg-slate-50/40 dark:bg-slate-850/30 p-2 rounded-lg border border-slate-200/30 dark:border-slate-800">
+                          <div key={ex.id} className="flex justify-between items-center text-[11px] bg-slate-50/40 dark:bg-slate-800/30 p-2 rounded-lg border border-slate-200/30 dark:border-slate-800">
                             <span className="font-bold text-slate-700 dark:text-slate-200 truncate max-w-[55%]">{ex.subject}</span>
                             <span className={`font-black text-[9px] uppercase tracking-wider ${isUpcoming ? (diffDays <= 3 ? 'text-red-500' : 'text-indigo-605') : 'text-slate-400'}`}>
                               {isUpcoming ? `${diffDays} days` : 'Past'}
@@ -946,7 +1036,7 @@ export const App: React.FC = () => {
                       })}
                     </div>
                   ) : (
-                    <p className="text-[11px] text-slate-450 text-center py-2 italic">No registered exams. Load upcoming exams in the Profile page.</p>
+                    <p className="text-[11px] text-slate-400 text-center py-2 italic">No registered exams. Load upcoming exams in the Profile page.</p>
                   )}
                 </div>
 
@@ -1007,38 +1097,38 @@ export const App: React.FC = () => {
               
               <div className="lg:col-span-8 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl p-6 rounded-2xl border border-slate-200 dark:border-slate-800/80 shadow-sm space-y-6">
                 <div>
-                  <h3 className="text-lg font-bold text-slate-850 dark:text-white">Identity Details</h3>
+                  <h3 className="text-lg font-bold text-slate-800 dark:text-white">Identity Details</h3>
                   <p className="text-slate-500 dark:text-slate-400 text-xs mt-0.5">Customize your personal academic metadata.</p>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 text-slate-800 dark:text-white">
                   <div>
-                    <span className="text-[9px] font-black uppercase text-slate-450 dark:text-slate-400 block tracking-wider">Student Name</span>
+                    <span className="text-[9px] font-black uppercase text-slate-400 dark:text-slate-400 block tracking-wider">Student Name</span>
                     <p className="text-sm font-bold mt-1 text-slate-800 dark:text-slate-100">{currentUser.name}</p>
                   </div>
                   <div>
-                    <span className="text-[9px] font-black uppercase text-slate-450 dark:text-slate-400 block tracking-wider">Email Address</span>
+                    <span className="text-[9px] font-black uppercase text-slate-400 dark:text-slate-400 block tracking-wider">Email Address</span>
                     <p className="text-sm font-bold mt-1 text-slate-800 dark:text-slate-100">{currentUser.email || 'N/A'}</p>
                   </div>
                   <div>
-                    <span className="text-[9px] font-black uppercase text-slate-450 dark:text-slate-400 block tracking-wider">University / College</span>
-                    <p className="text-sm font-bold mt-1 text-slate-800 dark:text-slate-100">{currentUser.university || 'ZenITH Institute'}</p>
+                    <span className="text-[9px] font-black uppercase text-slate-400 dark:text-slate-400 block tracking-wider">University / College</span>
+                    <p className="text-sm font-bold mt-1 text-slate-800 dark:text-slate-100">{currentUser.university || 'ILMORA Institute'}</p>
                   </div>
                   <div>
-                    <span className="text-[9px] font-black uppercase text-slate-450 dark:text-slate-400 block tracking-wider">Course / Major</span>
+                    <span className="text-[9px] font-black uppercase text-slate-400 dark:text-slate-400 block tracking-wider">Course / Major</span>
                     <p className="text-sm font-bold mt-1 text-slate-800 dark:text-slate-100">{currentUser.course || currentUser.major || 'Cyber Security'}</p>
                   </div>
                   <div>
-                    <span className="text-[9px] font-black uppercase text-slate-450 dark:text-slate-400 block tracking-wider">Current Semester</span>
+                    <span className="text-[9px] font-black uppercase text-slate-400 dark:text-slate-400 block tracking-wider">Current Semester</span>
                     <p className="text-sm font-bold mt-1 text-slate-800 dark:text-slate-100">{currentUser.semester || 'Semester 4'}</p>
                   </div>
                   <div>
-                    <span className="text-[9px] font-black uppercase text-slate-450 dark:text-slate-400 block tracking-wider">Daily Study Goal</span>
+                    <span className="text-[9px] font-black uppercase text-slate-400 dark:text-slate-400 block tracking-wider">Daily Study Goal</span>
                     <p className="text-sm font-bold mt-1 text-slate-800 dark:text-slate-100">{currentUser.dailyStudyGoal || 2} Hours</p>
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-slate-150 dark:border-slate-800 flex justify-end">
+                <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end">
                   <button
                     onClick={() => setIsEditingProfile(true)}
                     className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-5 py-2.5 rounded-xl transition-all shadow-sm text-xs active:scale-98"
@@ -1097,14 +1187,14 @@ export const App: React.FC = () => {
       return (
         <div className="hidden md:flex items-center gap-1.5">
           {homeButton}
-          <span className="text-slate-350 dark:text-slate-655 text-base font-light">/</span>
+          <span className="text-slate-300 dark:text-slate-655 text-base font-light">/</span>
           <button
             onClick={() => navigate('/zen-tutor/overview')}
             className="bg-white/60 dark:bg-slate-800/60 px-3 py-1.5 rounded-xl border border-white dark:border-slate-700/80 shadow-sm hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all text-[10px] font-black text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 uppercase tracking-wider"
           >
-            Zen AI Tutor
+            ILMORA Mentor
           </button>
-          <span className="text-slate-350 dark:text-slate-655 text-base font-light">/</span>
+          <span className="text-slate-300 dark:text-slate-655 text-base font-light">/</span>
           <div className="bg-white/60 dark:bg-slate-800/60 px-3 py-1.5 rounded-xl border border-white dark:border-slate-700/80 shadow-sm">
             <span className="text-[10px] font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">{activeTabLabel}</span>
           </div>
@@ -1124,7 +1214,7 @@ export const App: React.FC = () => {
     return (
       <div className="hidden md:flex items-center gap-1.5">
         {homeButton}
-        <span className="text-slate-350 dark:text-slate-655 text-base font-light">/</span>
+        <span className="text-slate-300 dark:text-slate-655 text-base font-light">/</span>
         <div className="bg-white/60 dark:bg-slate-800/60 px-3 py-1.5 rounded-xl border border-white dark:border-slate-700/80 shadow-sm">
           <span className="text-[10px] font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">{label}</span>
         </div>
@@ -1157,7 +1247,7 @@ export const App: React.FC = () => {
               {/* Mobile Brand */}
               <div className="md:hidden flex items-center gap-2">
                 <span className="text-xl animate-float">🧘</span>
-                <span className="font-black tracking-tighter text-lg bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">ZenStudy</span>
+                <span className="font-black tracking-widest uppercase text-lg bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 font-['Cormorant_Garamond']">ILMORA</span>
               </div>
 
               {/* Persistent Navigation Breadcrumb for Easy Access */}
@@ -1165,10 +1255,10 @@ export const App: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="hidden lg:flex items-center gap-3 bg-indigo-600 text-white px-4 py-1.5 rounded-xl shadow-md transition-all">
-                <div className="flex flex-col">
-                  <span className="text-[8px] font-black uppercase tracking-wider opacity-85 leading-none mb-0.5">Session</span>
-                  <span className="text-xs font-mono font-black leading-none">
+              <div className="hidden lg:flex items-center gap-3 bg-indigo-600 text-white px-5 py-2.5 rounded-xl shadow-md transition-all">
+                <div className="flex flex-col items-center justify-center">
+                  <span className="text-xs font-black uppercase tracking-wider opacity-90 leading-none mb-1">Session</span>
+                  <span className="text-base font-mono font-black leading-none">
                     {Math.floor(sessionTime / 60)}h {sessionTime % 60}m
                   </span>
                 </div>
@@ -1176,12 +1266,12 @@ export const App: React.FC = () => {
 
               <div className="flex items-center gap-2 md:gap-3">
                 <div className="flex items-center gap-1.5 bg-white dark:bg-slate-800 p-1 rounded-xl border border-slate-200 dark:border-slate-700/80 shadow-sm transition-all group">
-                  <div className="w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center overflow-hidden border border-indigo-100 dark:border-indigo-850 group-hover:rotate-3 transition-transform">
+                  <div className="w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center overflow-hidden border border-indigo-100 dark:border-indigo-800 group-hover:rotate-3 transition-transform">
                     {renderAvatar(currentUser, "text-[9px]")}
                   </div>
                   <button
                     onClick={() => setIsEditingProfile(true)}
-                    className="w-7 h-7 flex items-center justify-center rounded-lg text-indigo-550 hover:bg-indigo-50 dark:hover:bg-indigo-900/50 transition-all"
+                    className="w-7 h-7 flex items-center justify-center rounded-lg text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/50 transition-all"
                     title="Profile Settings"
                   >
                     ⚙️
@@ -1190,7 +1280,7 @@ export const App: React.FC = () => {
 
                 <button
                   onClick={handleLogout}
-                  className="hidden md:block bg-slate-100 dark:bg-slate-800 text-slate-650 dark:text-slate-300 px-3.5 py-2 rounded-xl font-black text-[9px] uppercase tracking-wider hover:bg-red-600 hover:text-white transition-all shadow-sm active:scale-95"
+                  className="hidden md:block bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3.5 py-2 rounded-xl font-black text-[9px] uppercase tracking-wider hover:bg-red-600 hover:text-white transition-all shadow-sm active:scale-95"
                 >
                   Log Out
                 </button>
@@ -1212,10 +1302,10 @@ export const App: React.FC = () => {
                 <footer className="mt-12 text-center py-6 border-t border-slate-200 dark:border-slate-900">
                   <div className="space-y-2">
                     <p className="text-slate-500 dark:text-slate-400 font-black uppercase tracking-[0.2em] text-[10px]">
-                      Developed by B A FAREED AHAMED
+                      © 2026 ILMORA
                     </p>
                     <p className="text-slate-400 dark:text-slate-600 text-[9px] font-bold uppercase tracking-[0.15em]">
-                      with care for the help in student performance
+                      Academic Intelligence Platform
                     </p>
 
                     <div className="flex flex-wrap justify-center gap-3 mt-4">
@@ -1232,7 +1322,7 @@ export const App: React.FC = () => {
                         href="https://bafareedahamedportfolio.netlify.app/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-slate-100/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-800 px-4 py-2 rounded-xl text-[9px] font-black uppercase tracking-wider text-slate-650 dark:text-slate-300 hover:text-purple-600 dark:hover:text-purple-400 transition-all shadow-sm flex items-center gap-2 border border-transparent hover:border-purple-500/20 group"
+                        className="bg-slate-100/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-800 px-4 py-2 rounded-xl text-[9px] font-black uppercase tracking-wider text-slate-600 dark:text-slate-300 hover:text-purple-600 dark:hover:text-purple-400 transition-all shadow-sm flex items-center gap-2 border border-transparent hover:border-purple-500/20 group"
                       >
                         <span className="text-sm group-hover:scale-110 transition-transform">👤</span>
                         <span>Portfolio</span>

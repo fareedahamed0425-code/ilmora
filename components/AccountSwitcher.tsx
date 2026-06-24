@@ -181,7 +181,7 @@ export const AccountSwitcher: React.FC<AuthScreenProps> = ({ onGuestLogin }) => 
                                 onClick={() => selectAccount(acc)}
                                 className="flex items-center gap-4 p-3 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-indigo-400 hover:shadow-md cursor-pointer transition-all group bg-slate-50 dark:bg-slate-800/50"
                             >
-                                <div className="w-12 h-12 rounded-full bg-indigo-150 dark:bg-slate-800 flex items-center justify-center overflow-hidden shrink-0 relative border border-slate-200 dark:border-slate-700">
+                                <div className="w-12 h-12 rounded-full bg-indigo-100 dark:bg-slate-800 flex items-center justify-center overflow-hidden shrink-0 relative border border-slate-200 dark:border-slate-700">
                                     {isUrl(acc.avatar) ? (
                                         <img src={acc.avatar} alt={acc.name} className="w-full h-full object-cover" />
                                     ) : (
@@ -230,11 +230,11 @@ export const AccountSwitcher: React.FC<AuthScreenProps> = ({ onGuestLogin }) => 
                     )}
 
                     <div className="mt-6 text-center flex justify-center gap-3 text-[9px] font-black uppercase tracking-wider text-slate-405 dark:text-slate-500">
-                        <a href="/policies/privacy-policy.md" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-650 transition-colors">Privacy</a>
+                        <a href="/privacy" onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/privacy'); window.dispatchEvent(new Event('popstate')); }} className="hover:text-indigo-600 transition-colors">Privacy</a>
                         <span>•</span>
-                        <a href="/policies/terms-of-service.md" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-650 transition-colors">Terms</a>
+                        <a href="/terms" onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/terms'); window.dispatchEvent(new Event('popstate')); }} className="hover:text-indigo-600 transition-colors">Terms</a>
                         <span>•</span>
-                        <a href="/policies/cookie-policy.md" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-650 transition-colors">Cookies</a>
+                        <a href="/cookies" onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/cookies'); window.dispatchEvent(new Event('popstate')); }} className="hover:text-indigo-600 transition-colors">Cookies</a>
                     </div>
                 </div>
             </div>
@@ -258,7 +258,7 @@ export const AccountSwitcher: React.FC<AuthScreenProps> = ({ onGuestLogin }) => 
 
                 <div className="text-center mb-8 relative z-10 mt-4">
                     <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-300 mb-2">
-                        ZenStudy
+                        ILMORA
                     </h1>
                     <p className="text-slate-500 dark:text-slate-400 font-medium">
                         {view === 'register' ? "Create your secure account" : "Welcome back, student."}
@@ -368,11 +368,11 @@ export const AccountSwitcher: React.FC<AuthScreenProps> = ({ onGuestLogin }) => 
                     )}
 
                     <div className="mt-6 text-center flex justify-center gap-3 text-[9px] font-black uppercase tracking-wider text-slate-405 dark:text-slate-500">
-                        <a href="/policies/privacy-policy.md" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-650 transition-colors">Privacy</a>
+                        <a href="/privacy" onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/privacy'); window.dispatchEvent(new Event('popstate')); }} className="hover:text-indigo-600 transition-colors">Privacy</a>
                         <span>•</span>
-                        <a href="/policies/terms-of-service.md" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-650 transition-colors">Terms</a>
+                        <a href="/terms" onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/terms'); window.dispatchEvent(new Event('popstate')); }} className="hover:text-indigo-600 transition-colors">Terms</a>
                         <span>•</span>
-                        <a href="/policies/cookie-policy.md" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-650 transition-colors">Cookies</a>
+                        <a href="/cookies" onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', '/cookies'); window.dispatchEvent(new Event('popstate')); }} className="hover:text-indigo-600 transition-colors">Cookies</a>
                     </div>
                 </div>
             </div>

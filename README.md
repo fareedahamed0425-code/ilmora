@@ -2,23 +2,24 @@
   <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# ZenStudy 🧘‍♂️
+# ILMORA 🧘‍♂️
 
-**ZenStudy** is a psychology-aware academic assistant and productivity workspace designed to help students optimize their learning, manage exam stress, and build sustainable study habits.
+**ILMORA** is a psychology-aware academic assistant and productivity workspace designed to help students optimize their learning, manage exam stress, and build sustainable study habits.
 
-Unlike traditional planners, ZenStudy actively adapts to your focus profile, tracks your study consistency, and provides personalized AI coaching to prevent burnout before it happens.
+Unlike traditional planners, ILMORA actively adapts to your focus profile, tracks your study consistency, and provides personalized AI coaching to prevent burnout before it happens.
 
 ---
 
 ## 🌟 Key Features
 
-* **Zen AI Tutor**: A personalized intelligent coach offering actionable insights into your learning profile, academic diagnosis, and burnout/stress levels.
+* **ILMORA Mentor**: A personalized intelligent coach offering actionable insights into your learning profile, academic diagnosis, and burnout/stress levels.
 * **Productivity Workspace**: A centralized dashboard featuring daily agendas, study goal tracking, task lists, and upcoming exam countdowns.
 * **Adaptive AI Planner**: Dynamically generates study roadmaps customized to your available time and current academic stress levels.
 * **Note Archive**: Upload and process your study materials. The AI simplifier summarizes complex notes into digestible formats.
 * **Strategies Toolbox**: Discover and implement proven learning frameworks like the Pomodoro technique, Feynman technique, and active recall.
 * **Gamification & Streaks**: Build consistency through daily study streaks, unlock achievements, earn XP, and utilize "Streak Freezes" when you need a well-deserved break.
 * **Mood & Stress Tracking**: Daily check-ins help the AI gauge your current cognitive load and adjust recommendations accordingly.
+* **Focus Insights**: Tracks context switches (tab shifts) to monitor and reduce focus interruptions during study sessions.
 
 ## 🛠️ Tech Stack
 
@@ -41,8 +42,8 @@ Unlike traditional planners, ZenStudy actively adapts to your focus profile, tra
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/zenstudy.git
-   cd zenstudy
+   git clone https://github.com/yourusername/ilmora.git
+   cd ilmora
    ```
 
 2. **Install dependencies:**
@@ -69,7 +70,7 @@ Unlike traditional planners, ZenStudy actively adapts to your focus profile, tra
 
 ## ⚖️ Legal
 
-By using ZenStudy, you agree to our terms and conditions. The application features a mandatory consent modal on the first visit to ensure compliance with our:
+By using ILMORA, you agree to our terms and conditions. The application features a mandatory consent modal on the first visit to ensure compliance with our:
 * [Terms of Service](public/policies/terms-of-service.md)
 * [Privacy Policy](public/policies/privacy-policy.md)
 * [Cookie Policy](public/policies/cookie-policy.md)
